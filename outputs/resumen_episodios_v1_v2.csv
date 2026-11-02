@@ -1,0 +1,10 @@
+muestra,episodio,evaluable,motivo,anticipación del rojo (sem.),caída máx. mantener,caída máx. v1,caída máx. v2,percentil placebo v1,percentil placebo v2,(a) v2 reduce la caída,(b) percentil v2 < 20%
+Dentro,Nasdaq 2000-2002,Sí,,11,-0.7742155286088193,-0.7315469487339096,-0.6479175098643821,15.2,13.8,True,True
+Dentro,Nasdaq 2007-2009,Sí,,sin señal,-0.539617407775097,-0.539617407775097,-0.539617407775097,,,False,False
+Dentro,Nasdaq 2021-2022,Sí,,sin señal,-0.35722074177183416,-0.35722074177183416,-0.35722074177183416,,,False,False
+Dentro,Nasdaq periodo completo,Sí,,—,-0.774215528608819,-0.7315469487339096,-0.6479175098643821,14.399999999999999,13.100000000000001,True,True
+Dentro,Cartera B 2018-hoy (9 acciones),Sí,sesgo de supervivencia,,-0.45374090568976344,-0.4345598738756741,-0.37896650154791167,49.0,25.7,True,False
+Fuera,Nikkei 1989,Sí,,45,-0.619172086260195,-0.619172086260195,-0.5769964020247969,51.2,53.6,True,False
+Fuera,Shanghái 2007,No,serie excluida por validación: hueco de 13 días hábiles tras 1999-02-09,,,,,,,,
+Fuera,Shanghái 2015,No,serie excluida por validación: hueco de 13 días hábiles tras 1999-02-09,,,,,,,,
+Fuera,Bitcoin 2021,Sí,,42,-0.7424737064918905,-0.7424737064918905,-0.5351203129935971,35.3,13.200000000000001,True,True
