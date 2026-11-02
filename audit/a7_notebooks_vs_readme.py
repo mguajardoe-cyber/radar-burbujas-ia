@@ -1,6 +1,6 @@
 # =============================================================================
 # Auditoría — notebooks ejecutados vs. cifras del README
-# Revisa que los 7 notebooks no tengan errores ni celdas sin ejecutar y que
+# Revisa que los 9 notebooks no tengan errores ni celdas sin ejecutar y que
 # las cifras clave de sus salidas coincidan con las publicadas en README.md.
 # Salida: audit/resultados/notebooks_vs_readme.txt
 # =============================================================================
@@ -13,7 +13,7 @@ import pandas as pd
 from comun import RAIZ, DIR_AUDIT
 
 NOTEBOOKS = ["01_prueba_concepto_sadf", "02_ingesta_y_validacion", "03_features_y_semaforo", "03b_bsadf_ventana_movil",
-             "06_backtest_kpis", "06b_regla_enfriamiento_fuera_de_muestra", "07_reporte"]
+             "04_kmeans", "06_backtest_kpis", "06b_regla_enfriamiento_fuera_de_muestra", "06c_kpis_negocio", "07_reporte"]
 lineas, textos = [], {}
 for n in NOTEBOOKS:
     nb = json.load(open(RAIZ / "notebooks" / f"{n}.ipynb", encoding="utf-8"))
@@ -54,13 +54,19 @@ chequeos = {
                                    and esta("06b_regla_enfriamiento_fuera_de_muestra", r"NO VALIDADA"),
     "06b: v2 Nasdaq -64,8% (percentil 13,1)": esta("06b_regla_enfriamiento_fuera_de_muestra", r"-64\.8%")
                                                and esta("06b_regla_enfriamiento_fuera_de_muestra", r"13\.1"),
-    "07: reporte con 3 hojas": esta("07_reporte", r"\['Semáforo', 'Variables', 'Gráficos'\]"),
+    "04: 9.971 observaciones": esta("04_kmeans", r"4 variables\): 9\.971"),
+    "04: k = 3 con silhouette 0,374": esta("04_kmeans", r"\(k = 3,") and esta("04_kmeans", r"\b3 21183\.901 0\.374\b"),
+    "06c: pérdida evitada Nasdaq US$12,6 M": esta("06c_kpis_negocio", r"Nasdaq 2000-2002 .{0,120}US\$ 12,6 M"),
+    "06c: 1,1 episodios rojos por año (9 acciones)": esta("06c_kpis_negocio", r"1\.1 en las 9 acciones"),
+    "07: reporte con 4 hojas": esta("07_reporte", r"\['Semáforo', 'Variables', 'Gráficos', 'Registro de revisión'\]"),
 }
 readme = (RAIZ / "README.md").read_text(encoding="utf-8")
 en_readme = {"−73,2%": "−73,2%" in readme, "−77,4%": "−77,4%" in readme, "−64,8%": "−64,8%" in readme,
              "percentil 14": "percentil 14" in readme, "49": "en el 49" in readme, "13,2": "13,2" in readme,
              "53,6": "53,6" in readme, "11 semanas": "11 semanas" in readme, "45": "**45**" in readme,
-             "42": "**42**" in readme, "TSM en rojo, AMD en amarillo": "TSM en rojo, AMD en amarillo" in readme}
+             "42": "**42**" in readme, "TSM en rojo, AMD en amarillo": "TSM en rojo, AMD en amarillo" in readme,
+             "US$12,6 M": "US$12,6 M" in readme, "1,1 por año": "1,1 por año" in readme,
+             "k = 3": "k = 3" in readme, "0,374": "0,374" in readme}
 lineas += [f"{'OK ' if v else 'NO '} {k}" for k, v in chequeos.items()]
 lineas += [f"{'OK ' if v else 'NO '} README contiene {k}" for k, v in en_readme.items()]
 semaforo = pd.read_csv(RAIZ / "data" / "processed" / "semaforo_actual.csv")

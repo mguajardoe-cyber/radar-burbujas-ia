@@ -69,4 +69,4 @@ Primera semana hábil de **enero, abril, julio y octubre**, a cargo del dueño c
 
 - Todo cambio pasa por Git. El CI (`.github/workflows/ci.yml`) corre las pruebas en cada push.
 - Los cambios de parámetros o de metodología se anotan en el registro de decisiones de `docs/metodologia.md`, con motivo y control.
-- Cada versión entregada lleva una etiqueta de Git (por ejemplo, `v1.1-entrega`).
+- Cada versión entregada lleva una etiqueta de Git (por ejemplo, `v1.2-entrega`).

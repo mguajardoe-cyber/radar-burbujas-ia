@@ -11,7 +11,7 @@ __pycache__/
 # pytest
 .pytest_cache/
 
-# Respaldo de entrega (se genera con git archive desde la última etiqueta, v1.1-entrega)
+# Respaldo de entrega (se genera con git archive desde la última etiqueta, v1.2-entrega)
 outputs/entrega_*.zip
 
 # Sistema operativo y editores

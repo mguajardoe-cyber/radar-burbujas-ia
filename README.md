@@ -5,6 +5,8 @@
 Proyecto final del Diplomado en Ciencia de Datos para las Finanzas (FEN, Universidad de Chile).
 Autor: Martín Guajardo Espina · Profesores: Sebastián Egaña y César Núñez.
 
+*Para el desarrollo usé Claude (Anthropic) como herramienta de apoyo en programación, revisión y redacción. El diseño del producto, las decisiones metodológicas y la validación de los resultados son del autor.*
+
 El Radar de Burbujas IA es un **producto de datos** para el comité de inversiones. En cada ejecución:
 - Descarga los precios de 9 acciones de inteligencia artificial y de dos índices.
 - Aplica un test estadístico de burbujas.
@@ -114,8 +116,8 @@ Los IL3 e IL4 se calculan en cada corrida (`src/kpis.py`) y quedan en el log. Lo
 | IL3 | Tasa de duplicidad (filas ticker-fecha repetidas) | **0%** | 0% | MEDIDO | Log |
 | IL3 | Campos documentados en el diccionario | **100%** | 100% | MEDIDO | `docs/diccionario_datos.csv` |
 | IL3 | Frescura (días desde el último dato) | **3 días** (dato del 30-10-2026) | ≤ 7 días (WARNING si se supera) | MEDIDO | Log |
-| IL4 | Corridas sin error | **100%** (15/15; tasa de fallos 0%) | Fallos < 1% | MEDIDO | `logs/`: manual 4, pruebas 2, sin origen registrado 9 |
-| IL4 | Duración de la corrida | **Máx. 25,0 s**, promedio 9,2 s; con descarga, 14,6 s | < 5 min | MEDIDO | `logs/` (25 s = corrida que entrenó K-Means por primera vez) |
+| IL4 | Corridas sin error | **100%** (17/17; tasa de fallos 0%) | Fallos < 1% | MEDIDO | `logs/`: manual 5, pruebas 3, sin origen registrado 9 |
+| IL4 | Duración de la corrida | **Máx. 25,0 s**, promedio 9,4 s; con descarga, 14,6 s | < 5 min | MEDIDO | `logs/` (25 s = corrida que entrenó K-Means por primera vez) |
 | IL4 | Cumplimiento del SLA (reporte antes del lunes 08:00 en Chile) | Sin corridas programadas todavía | ≥ 95% | DEFINIDO | Pasa a MEDIDO con la primera corrida del workflow |
 | IL4 | Frecuencia de uso (revisiones por semana) | 0 revisiones: no hay usuario real | ≥ 1 por semana | DEFINIDO | Hoja "Registro de revisión", `scripts/contar_revisiones.py` |
 | IL5 | Anticipación del rojo antes del peak | **11 semanas** (puntocom), **45** (Nikkei 1989), **42** (Bitcoin 2021) | Rojo antes del peak | MEDIDO (backtest histórico) | Notebooks 03b y 06b |
@@ -200,6 +202,7 @@ Cada ejecución genera `outputs/reporte_radar_AAAA-MM-DD.xlsx` y agrega su regis
 ├── docs/              # metodología, guía, gobernanza, automatización, despliegue, arquitectura, diccionario, verificación
 ├── .github/           # workflows (CI y radar semanal) y plantilla de feedback
 ├── audit/             # verificación independiente de las cifras
+├── presentacion/      # Presentación final (HTML autocontenido; se abre con doble clic)
 └── requirements.txt
 ```
 
