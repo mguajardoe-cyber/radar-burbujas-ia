@@ -1,0 +1,38 @@
+# =============================================================================
+# Capa 6 — Mantenimiento: integración continua (CI)
+#
+# Propósito: en cada push, instalar las dependencias con Python 3.13 y correr
+#   las pruebas automáticas (pytest), incluida una ejecución completa de
+#   src/main.py --offline con los CSV versionados del repositorio.
+# Entradas: requirements.txt, tests/, data/raw/precios_diarios.csv,
+#   data/processed/cv_bsadf.json.
+# Salidas: estado del workflow en GitHub Actions (verde = pruebas OK).
+# =============================================================================
+
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  pruebas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Instalar Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Correr pruebas
+        run: pytest -v

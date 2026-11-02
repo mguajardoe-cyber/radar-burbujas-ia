@@ -1,0 +1,389 @@
+2026-11-02 00:04:06 | INFO     | radar.main | INICIO de la ejecución (modo offline)
+2026-11-02 00:04:07 | INFO     | radar.main | Modo offline: 75320 filas leídas de data/raw/precios_diarios.csv
+2026-11-02 00:04:07 | INFO     | radar.ingesta | NVDA: serie válida (6987 días)
+2026-11-02 00:04:07 | INFO     | radar.ingesta | MSFT: serie válida (8011 días)
+2026-11-02 00:04:07 | INFO     | radar.ingesta | GOOGL: serie válida (5586 días)
+2026-11-02 00:04:07 | INFO     | radar.ingesta | META: serie válida (3634 días)
+2026-11-02 00:04:07 | WARNING  | radar.ingesta | AMD: día 2015-01-02 eliminado por volumen no positivo
+2026-11-02 00:04:07 | WARNING  | radar.ingesta | AMD: variación diaria de 52% el 2016-04-22, marcada para revisión
+2026-11-02 00:04:07 | INFO     | radar.ingesta | AMD: serie válida (8010 días)
+2026-11-02 00:04:07 | INFO     | radar.ingesta | AVGO: serie válida (4336 días)
+2026-11-02 00:04:07 | INFO     | radar.ingesta | TSM: serie válida (7310 días)
+2026-11-02 00:04:07 | INFO     | radar.ingesta | ORCL: serie válida (8011 días)
+2026-11-02 00:04:07 | INFO     | radar.ingesta | AMZN: serie válida (7412 días)
+2026-11-02 00:04:07 | INFO     | radar.ingesta | ^IXIC: serie válida (8011 días)
+2026-11-02 00:04:07 | INFO     | radar.ingesta | ^GSPC: serie válida (8011 días)
+2026-11-02 00:04:07 | INFO     | radar.main | Tickers procesados: NVDA, MSFT, GOOGL, META, AMD, AVGO, TSM, ORCL, AMZN, ^IXIC, ^GSPC
+2026-11-02 00:04:07 | INFO     | radar.main | KPI IL3 — series válidas: 11/11 (100.0%, meta ≥ 98%)
+2026-11-02 00:04:07 | INFO     | radar.ingesta | Archivos guardados en data/processed
+2026-11-02 00:04:07 | INFO     | radar.features | Umbrales BSADF (260 semanas): amarillo 0.360, rojo 0.694; persistencia 6 semanas
+2026-11-02 00:04:07 | INFO     | radar.features | AMD: 1402 semanas con BSADF, semáforo actual amarillo (bruto verde)
+2026-11-02 00:04:07 | INFO     | radar.features | AMZN: 1279 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 00:04:07 | INFO     | radar.features | AVGO: 641 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 00:04:08 | INFO     | radar.features | GOOGL: 900 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 00:04:08 | INFO     | radar.features | META: 496 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 00:04:08 | INFO     | radar.features | MSFT: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 00:04:08 | INFO     | radar.features | NVDA: 1191 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 00:04:08 | INFO     | radar.features | ORCL: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 00:04:08 | INFO     | radar.features | TSM: 1258 semanas con BSADF, semáforo actual rojo (bruto amarillo)
+2026-11-02 00:04:08 | INFO     | radar.features | ^GSPC: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 00:04:08 | INFO     | radar.features | ^IXIC: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 00:04:08 | INFO     | radar.features | Panel semanal y semáforo actual guardados en data/processed
+2026-11-02 00:04:08 | INFO     | radar.main | Semáforo al 30-10-2026: TSM rojo, AMD amarillo, ^GSPC verde, ^IXIC verde, NVDA verde, GOOGL verde, AVGO verde, META verde, MSFT verde, AMZN verde, ORCL verde
+2026-11-02 00:04:08 | INFO     | radar.reporte | Reporte generado: reporte_radar_2026-10-30.xlsx
+2026-11-02 00:04:08 | INFO     | radar.main | FIN de la ejecución: estado OK, duración 2.0 s
+2026-11-02 00:04:08 | INFO     | radar.main | RESUMEN_EJECUCION estado=OK modo=offline duracion_s=2.0 series_validas=11/11 pct_validas=100.0 excluidos=- reporte=reporte_radar_2026-10-30.xlsx
+2026-11-02 00:04:11 | INFO     | radar.main | INICIO de la ejecución (modo offline)
+2026-11-02 00:04:11 | INFO     | radar.main | Modo offline: 75320 filas leídas de data/raw/precios_diarios.csv
+2026-11-02 00:04:11 | INFO     | radar.ingesta | NVDA: serie válida (6987 días)
+2026-11-02 00:04:11 | INFO     | radar.ingesta | MSFT: serie válida (8011 días)
+2026-11-02 00:04:11 | INFO     | radar.ingesta | GOOGL: serie válida (5586 días)
+2026-11-02 00:04:11 | INFO     | radar.ingesta | META: serie válida (3634 días)
+2026-11-02 00:04:11 | WARNING  | radar.ingesta | AMD: día 2015-01-02 eliminado por volumen no positivo
+2026-11-02 00:04:11 | WARNING  | radar.ingesta | AMD: variación diaria de 52% el 2016-04-22, marcada para revisión
+2026-11-02 00:04:11 | INFO     | radar.ingesta | AMD: serie válida (8010 días)
+2026-11-02 00:04:11 | INFO     | radar.ingesta | AVGO: serie válida (4336 días)
+2026-11-02 00:04:11 | INFO     | radar.ingesta | TSM: serie válida (7310 días)
+2026-11-02 00:04:11 | INFO     | radar.ingesta | ORCL: serie válida (8011 días)
+2026-11-02 00:04:11 | INFO     | radar.ingesta | AMZN: serie válida (7412 días)
+2026-11-02 00:04:11 | INFO     | radar.ingesta | ^IXIC: serie válida (8011 días)
+2026-11-02 00:04:11 | INFO     | radar.ingesta | ^GSPC: serie válida (8011 días)
+2026-11-02 00:04:11 | INFO     | radar.main | Tickers procesados: NVDA, MSFT, GOOGL, META, AMD, AVGO, TSM, ORCL, AMZN, ^IXIC, ^GSPC
+2026-11-02 00:04:11 | INFO     | radar.main | KPI IL3 — series válidas: 11/11 (100.0%, meta ≥ 98%)
+2026-11-02 00:04:12 | INFO     | radar.ingesta | Archivos guardados en data/processed
+2026-11-02 00:04:12 | INFO     | radar.features | Umbrales BSADF (260 semanas): amarillo 0.360, rojo 0.694; persistencia 6 semanas
+2026-11-02 00:04:12 | INFO     | radar.features | AMD: 1402 semanas con BSADF, semáforo actual amarillo (bruto verde)
+2026-11-02 00:04:12 | INFO     | radar.features | AMZN: 1279 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 00:04:12 | INFO     | radar.features | AVGO: 641 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 00:04:12 | INFO     | radar.features | GOOGL: 900 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 00:04:12 | INFO     | radar.features | META: 496 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 00:04:12 | INFO     | radar.features | MSFT: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 00:04:12 | INFO     | radar.features | NVDA: 1191 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 00:04:12 | INFO     | radar.features | ORCL: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 00:04:13 | INFO     | radar.features | TSM: 1258 semanas con BSADF, semáforo actual rojo (bruto amarillo)
+2026-11-02 00:04:13 | INFO     | radar.features | ^GSPC: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 00:04:13 | INFO     | radar.features | ^IXIC: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 00:04:13 | INFO     | radar.features | Panel semanal y semáforo actual guardados en data/processed
+2026-11-02 00:04:13 | INFO     | radar.main | Semáforo al 30-10-2026: TSM rojo, AMD amarillo, ^GSPC verde, ^IXIC verde, NVDA verde, GOOGL verde, AVGO verde, META verde, MSFT verde, AMZN verde, ORCL verde
+2026-11-02 00:04:13 | INFO     | radar.reporte | Reporte generado: reporte_radar_2026-10-30.xlsx
+2026-11-02 00:04:13 | INFO     | radar.main | FIN de la ejecución: estado OK, duración 2.0 s
+2026-11-02 00:04:13 | INFO     | radar.main | RESUMEN_EJECUCION estado=OK modo=offline duracion_s=2.0 series_validas=11/11 pct_validas=100.0 excluidos=- reporte=reporte_radar_2026-10-30.xlsx
+2026-11-02 01:11:36 | INFO     | radar.main | INICIO de la ejecución (modo offline)
+2026-11-02 01:11:36 | INFO     | radar.main | Modo offline: 75320 filas leídas de data/raw/precios_diarios.csv
+2026-11-02 01:11:36 | INFO     | radar.ingesta | NVDA: serie válida (6987 días)
+2026-11-02 01:11:36 | INFO     | radar.ingesta | MSFT: serie válida (8011 días)
+2026-11-02 01:11:36 | INFO     | radar.ingesta | GOOGL: serie válida (5586 días)
+2026-11-02 01:11:36 | INFO     | radar.ingesta | META: serie válida (3634 días)
+2026-11-02 01:11:36 | WARNING  | radar.ingesta | AMD: día 2015-01-02 eliminado por volumen no positivo
+2026-11-02 01:11:36 | WARNING  | radar.ingesta | AMD: variación diaria de 52% el 2016-04-22, marcada para revisión
+2026-11-02 01:11:36 | INFO     | radar.ingesta | AMD: serie válida (8010 días)
+2026-11-02 01:11:36 | INFO     | radar.ingesta | AVGO: serie válida (4336 días)
+2026-11-02 01:11:36 | INFO     | radar.ingesta | TSM: serie válida (7310 días)
+2026-11-02 01:11:36 | INFO     | radar.ingesta | ORCL: serie válida (8011 días)
+2026-11-02 01:11:36 | INFO     | radar.ingesta | AMZN: serie válida (7412 días)
+2026-11-02 01:11:37 | INFO     | radar.ingesta | ^IXIC: serie válida (8011 días)
+2026-11-02 01:11:37 | INFO     | radar.ingesta | ^GSPC: serie válida (8011 días)
+2026-11-02 01:11:37 | INFO     | radar.main | Tickers procesados: NVDA, MSFT, GOOGL, META, AMD, AVGO, TSM, ORCL, AMZN, ^IXIC, ^GSPC
+2026-11-02 01:11:37 | INFO     | radar.kpis | KPI IL3 [MEDIDO] cobertura de fuentes: 11/11 series válidas (100.0%, meta ≥ 98%)
+2026-11-02 01:11:37 | INFO     | radar.kpis | KPI IL3 [MEDIDO] completitud: 100.00% de los días descargados son válidos (meta ≥ 98%)
+2026-11-02 01:11:37 | INFO     | radar.kpis |     AMD: 8010 de 8011 días válidos (99.99%)
+2026-11-02 01:11:37 | INFO     | radar.kpis | KPI IL3 [MEDIDO] tasa de duplicidad: 0.00% de filas (ticker, fecha) repetidas (meta 0%)
+2026-11-02 01:11:37 | INFO     | radar.kpis | KPI IL3 [MEDIDO] campos documentados: 100% de las columnas en el diccionario (meta 100%)
+2026-11-02 01:11:37 | INFO     | radar.kpis | KPI IL3 [MEDIDO] frescura: 3 días desde el último dato (2026-10-30; meta ≤ 7 días)
+2026-11-02 01:11:37 | INFO     | radar.kpis | KPI_IL3 cobertura=1.0000 completitud=1.0000 duplicidad=0.0000 campos=1.0000 frescura_dias=3
+2026-11-02 01:11:39 | INFO     | radar.ingesta | Archivos guardados en data/processed
+2026-11-02 01:11:39 | INFO     | radar.features | Umbrales BSADF (260 semanas): amarillo 0.360, rojo 0.694; persistencia 6 semanas
+2026-11-02 01:11:39 | INFO     | radar.features | AMD: 1402 semanas con BSADF, semáforo actual amarillo (bruto verde)
+2026-11-02 01:11:40 | INFO     | radar.features | AMZN: 1279 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 01:11:41 | INFO     | radar.features | AVGO: 641 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 01:11:41 | INFO     | radar.features | GOOGL: 900 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 01:11:41 | INFO     | radar.features | META: 496 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 01:11:42 | INFO     | radar.features | MSFT: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 01:11:43 | INFO     | radar.features | NVDA: 1191 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 01:11:44 | INFO     | radar.features | ORCL: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 01:11:44 | INFO     | radar.features | TSM: 1258 semanas con BSADF, semáforo actual rojo (bruto amarillo)
+2026-11-02 01:11:45 | INFO     | radar.features | ^GSPC: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 01:11:46 | INFO     | radar.features | ^IXIC: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 01:11:46 | INFO     | radar.features | Panel semanal y semáforo actual guardados en data/processed
+2026-11-02 01:11:46 | INFO     | radar.main | Semáforo al 30-10-2026: TSM rojo, AMD amarillo, ^GSPC verde, ^IXIC verde, NVDA verde, GOOGL verde, AVGO verde, META verde, MSFT verde, AMZN verde, ORCL verde
+2026-11-02 01:11:47 | INFO     | radar.reporte | Reporte generado: reporte_radar_2026-10-30.xlsx
+2026-11-02 01:11:47 | INFO     | radar.main | FIN de la ejecución: estado OK, duración 10.8 s
+2026-11-02 01:11:47 | INFO     | radar.main | RESUMEN_EJECUCION estado=OK modo=offline duracion_s=10.8 series_validas=11/11 pct_validas=100.0 excluidos=- reporte=reporte_radar_2026-10-30.xlsx
+2026-11-02 01:15:12 | INFO     | radar.main | INICIO de la ejecución (modo offline, origen pruebas)
+2026-11-02 01:15:12 | INFO     | radar.main | Modo offline: 75320 filas leídas de data/raw/precios_diarios.csv
+2026-11-02 01:15:12 | INFO     | radar.ingesta | NVDA: serie válida (6987 días)
+2026-11-02 01:15:13 | INFO     | radar.ingesta | MSFT: serie válida (8011 días)
+2026-11-02 01:15:13 | INFO     | radar.ingesta | GOOGL: serie válida (5586 días)
+2026-11-02 01:15:13 | INFO     | radar.ingesta | META: serie válida (3634 días)
+2026-11-02 01:15:13 | WARNING  | radar.ingesta | AMD: día 2015-01-02 eliminado por volumen no positivo
+2026-11-02 01:15:13 | WARNING  | radar.ingesta | AMD: variación diaria de 52% el 2016-04-22, marcada para revisión
+2026-11-02 01:15:13 | INFO     | radar.ingesta | AMD: serie válida (8010 días)
+2026-11-02 01:15:13 | INFO     | radar.ingesta | AVGO: serie válida (4336 días)
+2026-11-02 01:15:13 | INFO     | radar.ingesta | TSM: serie válida (7310 días)
+2026-11-02 01:15:13 | INFO     | radar.ingesta | ORCL: serie válida (8011 días)
+2026-11-02 01:15:13 | INFO     | radar.ingesta | AMZN: serie válida (7412 días)
+2026-11-02 01:15:13 | INFO     | radar.ingesta | ^IXIC: serie válida (8011 días)
+2026-11-02 01:15:13 | INFO     | radar.ingesta | ^GSPC: serie válida (8011 días)
+2026-11-02 01:15:13 | INFO     | radar.main | Tickers procesados: NVDA, MSFT, GOOGL, META, AMD, AVGO, TSM, ORCL, AMZN, ^IXIC, ^GSPC
+2026-11-02 01:15:13 | INFO     | radar.kpis | KPI IL3 [MEDIDO] cobertura de fuentes: 11/11 series válidas (100.0%, meta ≥ 98%)
+2026-11-02 01:15:13 | INFO     | radar.kpis | KPI IL3 [MEDIDO] completitud: 99.999% de los días descargados son válidos (meta ≥ 98%)
+2026-11-02 01:15:13 | INFO     | radar.kpis |     AMD: 8010 de 8011 días válidos (99.99%)
+2026-11-02 01:15:13 | INFO     | radar.kpis | KPI IL3 [MEDIDO] tasa de duplicidad: 0.00% de filas (ticker, fecha) repetidas (meta 0%)
+2026-11-02 01:15:13 | INFO     | radar.kpis | KPI IL3 [MEDIDO] campos documentados: 100% de las columnas en el diccionario (meta 100%)
+2026-11-02 01:15:13 | INFO     | radar.kpis | KPI IL3 [MEDIDO] frescura: 3 días desde el último dato (2026-10-30; meta ≤ 7 días)
+2026-11-02 01:15:13 | INFO     | radar.kpis | KPI_IL3 cobertura=1.0000 completitud=1.0000 duplicidad=0.0000 campos=1.0000 frescura_dias=3
+2026-11-02 01:15:14 | INFO     | radar.ingesta | Archivos guardados en data/processed
+2026-11-02 01:15:14 | INFO     | radar.features | Umbrales BSADF (260 semanas): amarillo 0.360, rojo 0.694; persistencia 6 semanas
+2026-11-02 01:15:14 | INFO     | radar.features | AMD: 1402 semanas con BSADF, semáforo actual amarillo (bruto verde)
+2026-11-02 01:15:15 | INFO     | radar.features | AMZN: 1279 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 01:15:15 | INFO     | radar.features | AVGO: 641 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 01:15:15 | INFO     | radar.features | GOOGL: 900 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 01:15:16 | INFO     | radar.features | META: 496 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 01:15:16 | INFO     | radar.features | MSFT: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 01:15:16 | INFO     | radar.features | NVDA: 1191 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 01:15:17 | INFO     | radar.features | ORCL: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 01:15:17 | INFO     | radar.features | TSM: 1258 semanas con BSADF, semáforo actual rojo (bruto amarillo)
+2026-11-02 01:15:18 | INFO     | radar.features | ^GSPC: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 01:15:18 | INFO     | radar.features | ^IXIC: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 01:15:18 | INFO     | radar.features | Panel semanal y semáforo actual guardados en data/processed
+2026-11-02 01:15:18 | INFO     | radar.main | Semáforo al 30-10-2026: TSM rojo, AMD amarillo, ^GSPC verde, ^IXIC verde, NVDA verde, GOOGL verde, AVGO verde, META verde, MSFT verde, AMZN verde, ORCL verde
+2026-11-02 01:15:19 | INFO     | radar.reporte | Reporte generado: reporte_radar_2026-10-30.xlsx
+2026-11-02 01:15:19 | INFO     | radar.main | FIN de la ejecución: estado OK, duración 6.3 s
+2026-11-02 01:15:19 | INFO     | radar.main | RESUMEN_EJECUCION estado=OK modo=offline origen=pruebas fin_utc=2026-11-02T04:15:19Z duracion_s=6.3 series_validas=11/11 pct_validas=100.0 filas=75320 excluidos=- reporte=reporte_radar_2026-10-30.xlsx
+2026-11-02 01:15:19 | INFO     | radar.kpis | KPI IL4 [MEDIDO] corridas sin error: 10/10 (100.0%; tasa de fallos 0.0%, meta < 1%); por origen: no_registrado 9/9, pruebas 1/1
+2026-11-02 01:15:19 | INFO     | radar.kpis | KPI IL4 [MEDIDO] duración: máxima 14.6 s, promedio 8.3 s (meta < 300 s)
+2026-11-02 01:15:19 | INFO     | radar.kpis | KPI IL4 [DEFINIDO] SLA (reporte antes del lunes 08:00 en Chile): sin corridas programadas todavía
+2026-11-02 01:15:19 | INFO     | radar.kpis | KPI IL4 [DEFINIDO] frecuencia de uso: 0 revisiones registradas (usuario hipotético: aún no hay comité real)
+2026-11-02 01:15:23 | INFO     | radar.main | INICIO de la ejecución (modo offline, origen manual)
+2026-11-02 01:15:23 | INFO     | radar.main | Modo offline: 75320 filas leídas de data/raw/precios_diarios.csv
+2026-11-02 01:15:23 | INFO     | radar.ingesta | NVDA: serie válida (6987 días)
+2026-11-02 01:15:23 | INFO     | radar.ingesta | MSFT: serie válida (8011 días)
+2026-11-02 01:15:23 | INFO     | radar.ingesta | GOOGL: serie válida (5586 días)
+2026-11-02 01:15:23 | INFO     | radar.ingesta | META: serie válida (3634 días)
+2026-11-02 01:15:23 | WARNING  | radar.ingesta | AMD: día 2015-01-02 eliminado por volumen no positivo
+2026-11-02 01:15:23 | WARNING  | radar.ingesta | AMD: variación diaria de 52% el 2016-04-22, marcada para revisión
+2026-11-02 01:15:23 | INFO     | radar.ingesta | AMD: serie válida (8010 días)
+2026-11-02 01:15:23 | INFO     | radar.ingesta | AVGO: serie válida (4336 días)
+2026-11-02 01:15:23 | INFO     | radar.ingesta | TSM: serie válida (7310 días)
+2026-11-02 01:15:23 | INFO     | radar.ingesta | ORCL: serie válida (8011 días)
+2026-11-02 01:15:23 | INFO     | radar.ingesta | AMZN: serie válida (7412 días)
+2026-11-02 01:15:23 | INFO     | radar.ingesta | ^IXIC: serie válida (8011 días)
+2026-11-02 01:15:23 | INFO     | radar.ingesta | ^GSPC: serie válida (8011 días)
+2026-11-02 01:15:23 | INFO     | radar.main | Tickers procesados: NVDA, MSFT, GOOGL, META, AMD, AVGO, TSM, ORCL, AMZN, ^IXIC, ^GSPC
+2026-11-02 01:15:23 | INFO     | radar.kpis | KPI IL3 [MEDIDO] cobertura de fuentes: 11/11 series válidas (100.0%, meta ≥ 98%)
+2026-11-02 01:15:23 | INFO     | radar.kpis | KPI IL3 [MEDIDO] completitud: 99.999% de los días descargados son válidos (meta ≥ 98%)
+2026-11-02 01:15:23 | INFO     | radar.kpis |     AMD: 8010 de 8011 días válidos (99.99%)
+2026-11-02 01:15:23 | INFO     | radar.kpis | KPI IL3 [MEDIDO] tasa de duplicidad: 0.00% de filas (ticker, fecha) repetidas (meta 0%)
+2026-11-02 01:15:23 | INFO     | radar.kpis | KPI IL3 [MEDIDO] campos documentados: 100% de las columnas en el diccionario (meta 100%)
+2026-11-02 01:15:23 | INFO     | radar.kpis | KPI IL3 [MEDIDO] frescura: 3 días desde el último dato (2026-10-30; meta ≤ 7 días)
+2026-11-02 01:15:23 | INFO     | radar.kpis | KPI_IL3 cobertura=1.0000 completitud=1.0000 duplicidad=0.0000 campos=1.0000 frescura_dias=3
+2026-11-02 01:15:24 | INFO     | radar.ingesta | Archivos guardados en data/processed
+2026-11-02 01:15:25 | INFO     | radar.features | Umbrales BSADF (260 semanas): amarillo 0.360, rojo 0.694; persistencia 6 semanas
+2026-11-02 01:15:25 | INFO     | radar.features | AMD: 1402 semanas con BSADF, semáforo actual amarillo (bruto verde)
+2026-11-02 01:15:25 | INFO     | radar.features | AMZN: 1279 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 01:15:25 | INFO     | radar.features | AVGO: 641 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 01:15:26 | INFO     | radar.features | GOOGL: 900 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 01:15:26 | INFO     | radar.features | META: 496 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 01:15:26 | INFO     | radar.features | MSFT: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 01:15:27 | INFO     | radar.features | NVDA: 1191 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 01:15:27 | INFO     | radar.features | ORCL: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 01:15:27 | INFO     | radar.features | TSM: 1258 semanas con BSADF, semáforo actual rojo (bruto amarillo)
+2026-11-02 01:15:28 | INFO     | radar.features | ^GSPC: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 01:15:28 | INFO     | radar.features | ^IXIC: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 01:15:29 | INFO     | radar.features | Panel semanal y semáforo actual guardados en data/processed
+2026-11-02 01:15:29 | INFO     | radar.main | Semáforo al 30-10-2026: TSM rojo, AMD amarillo, ^GSPC verde, ^IXIC verde, NVDA verde, GOOGL verde, AVGO verde, META verde, MSFT verde, AMZN verde, ORCL verde
+2026-11-02 01:15:29 | INFO     | radar.reporte | Reporte generado: reporte_radar_2026-10-30.xlsx
+2026-11-02 01:15:29 | INFO     | radar.main | FIN de la ejecución: estado OK, duración 6.1 s
+2026-11-02 01:15:29 | INFO     | radar.main | RESUMEN_EJECUCION estado=OK modo=offline origen=manual fin_utc=2026-11-02T04:15:29Z duracion_s=6.1 series_validas=11/11 pct_validas=100.0 filas=75320 excluidos=- reporte=reporte_radar_2026-10-30.xlsx
+2026-11-02 01:15:29 | INFO     | radar.kpis | KPI IL4 [MEDIDO] corridas sin error: 11/11 (100.0%; tasa de fallos 0.0%, meta < 1%); por origen: manual 1/1, no_registrado 9/9, pruebas 1/1
+2026-11-02 01:15:29 | INFO     | radar.kpis | KPI IL4 [MEDIDO] duración: máxima 14.6 s, promedio 8.1 s (meta < 300 s)
+2026-11-02 01:15:29 | INFO     | radar.kpis | KPI IL4 [DEFINIDO] SLA (reporte antes del lunes 08:00 en Chile): sin corridas programadas todavía
+2026-11-02 01:15:29 | INFO     | radar.kpis | KPI IL4 [DEFINIDO] frecuencia de uso: 0 revisiones registradas (usuario hipotético: aún no hay comité real)
+2026-11-02 02:57:43 | INFO     | radar.main | INICIO de la ejecución (modo offline, origen manual)
+2026-11-02 02:57:43 | INFO     | radar.main | Modo offline: 75320 filas leídas de data/raw/precios_diarios.csv
+2026-11-02 02:57:43 | INFO     | radar.ingesta | NVDA: serie válida (6987 días)
+2026-11-02 02:57:43 | INFO     | radar.ingesta | MSFT: serie válida (8011 días)
+2026-11-02 02:57:43 | INFO     | radar.ingesta | GOOGL: serie válida (5586 días)
+2026-11-02 02:57:43 | INFO     | radar.ingesta | META: serie válida (3634 días)
+2026-11-02 02:57:43 | WARNING  | radar.ingesta | AMD: día 2015-01-02 eliminado por volumen no positivo
+2026-11-02 02:57:44 | WARNING  | radar.ingesta | AMD: variación diaria de 52% el 2016-04-22, marcada para revisión
+2026-11-02 02:57:44 | INFO     | radar.ingesta | AMD: serie válida (8010 días)
+2026-11-02 02:57:44 | INFO     | radar.ingesta | AVGO: serie válida (4336 días)
+2026-11-02 02:57:44 | INFO     | radar.ingesta | TSM: serie válida (7310 días)
+2026-11-02 02:57:44 | INFO     | radar.ingesta | ORCL: serie válida (8011 días)
+2026-11-02 02:57:44 | INFO     | radar.ingesta | AMZN: serie válida (7412 días)
+2026-11-02 02:57:44 | INFO     | radar.ingesta | ^IXIC: serie válida (8011 días)
+2026-11-02 02:57:44 | INFO     | radar.ingesta | ^GSPC: serie válida (8011 días)
+2026-11-02 02:57:44 | INFO     | radar.main | Tickers procesados: NVDA, MSFT, GOOGL, META, AMD, AVGO, TSM, ORCL, AMZN, ^IXIC, ^GSPC
+2026-11-02 02:57:44 | INFO     | radar.kpis | KPI IL3 [MEDIDO] cobertura de fuentes: 11/11 series válidas (100.0%, meta ≥ 98%)
+2026-11-02 02:57:44 | INFO     | radar.kpis | KPI IL3 [MEDIDO] completitud: 99.999% de los días descargados son válidos (meta ≥ 98%)
+2026-11-02 02:57:44 | INFO     | radar.kpis |     AMD: 8010 de 8011 días válidos (99.99%)
+2026-11-02 02:57:44 | INFO     | radar.kpis | KPI IL3 [MEDIDO] tasa de duplicidad: 0.00% de filas (ticker, fecha) repetidas (meta 0%)
+2026-11-02 02:57:44 | INFO     | radar.kpis | KPI IL3 [MEDIDO] campos documentados: 100% de las columnas en el diccionario (meta 100%)
+2026-11-02 02:57:44 | INFO     | radar.kpis | KPI IL3 [MEDIDO] frescura: 3 días desde el último dato (2026-10-30; meta ≤ 7 días)
+2026-11-02 02:57:44 | INFO     | radar.kpis | KPI_IL3 cobertura=1.0000 completitud=1.0000 duplicidad=0.0000 campos=1.0000 frescura_dias=3
+2026-11-02 02:57:44 | INFO     | radar.monitoreo | Deriva de filas: 75320 filas vs. 75320 en la corrida anterior (+0.00%)
+2026-11-02 02:57:45 | INFO     | radar.ingesta | Archivos guardados en data/processed
+2026-11-02 02:57:45 | INFO     | radar.features | Umbrales BSADF (260 semanas): amarillo 0.360, rojo 0.694; persistencia 6 semanas
+2026-11-02 02:57:45 | INFO     | radar.features | AMD: 1402 semanas con BSADF, semáforo actual amarillo (bruto verde)
+2026-11-02 02:57:46 | INFO     | radar.features | AMZN: 1279 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 02:57:46 | INFO     | radar.features | AVGO: 641 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 02:57:46 | INFO     | radar.features | GOOGL: 900 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 02:57:46 | INFO     | radar.features | META: 496 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 02:57:47 | INFO     | radar.features | MSFT: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 02:57:47 | INFO     | radar.features | NVDA: 1191 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 02:57:48 | INFO     | radar.features | ORCL: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 02:57:48 | INFO     | radar.features | TSM: 1258 semanas con BSADF, semáforo actual rojo (bruto amarillo)
+2026-11-02 02:57:48 | INFO     | radar.features | ^GSPC: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 02:57:49 | INFO     | radar.features | ^IXIC: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 02:57:49 | INFO     | radar.features | Panel semanal y semáforo actual guardados en data/processed
+2026-11-02 02:57:49 | INFO     | radar.main | Semáforo al 30-10-2026: TSM rojo, AMD amarillo, ^GSPC verde, ^IXIC verde, NVDA verde, GOOGL verde, AVGO verde, META verde, MSFT verde, AMZN verde, ORCL verde
+2026-11-02 02:57:49 | INFO     | radar.reporte | Reporte generado: reporte_radar_2026-10-30.xlsx
+2026-11-02 02:57:49 | INFO     | radar.main | FIN de la ejecución: estado OK, duración 6.2 s
+2026-11-02 02:57:49 | INFO     | radar.main | RESUMEN_EJECUCION estado=OK modo=offline origen=manual fin_utc=2026-11-02T05:57:49Z duracion_s=6.2 series_validas=11/11 pct_validas=100.0 filas=75320 alertas=0 excluidos=- reporte=reporte_radar_2026-10-30.xlsx
+2026-11-02 02:57:49 | INFO     | radar.kpis | KPI IL4 [MEDIDO] corridas sin error: 12/12 (100.0%; tasa de fallos 0.0%, meta < 1%); por origen: manual 2/2, no_registrado 9/9, pruebas 1/1
+2026-11-02 02:57:49 | INFO     | radar.kpis | KPI IL4 [MEDIDO] duración: máxima 14.6 s, promedio 8.0 s (meta < 300 s)
+2026-11-02 02:57:49 | INFO     | radar.kpis | KPI IL4 [DEFINIDO] SLA (reporte antes del lunes 08:00 en Chile): sin corridas programadas todavía
+2026-11-02 02:57:49 | INFO     | radar.kpis | KPI IL4 [DEFINIDO] frecuencia de uso: 0 revisiones registradas (usuario hipotético: aún no hay comité real)
+2026-11-02 03:00:31 | INFO     | radar.main | INICIO de la ejecución (modo offline, origen manual)
+2026-11-02 03:00:31 | INFO     | radar.main | Modo offline: 75320 filas leídas de data/raw/precios_diarios.csv
+2026-11-02 03:00:31 | INFO     | radar.ingesta | NVDA: serie válida (6987 días)
+2026-11-02 03:00:31 | INFO     | radar.ingesta | MSFT: serie válida (8011 días)
+2026-11-02 03:00:31 | INFO     | radar.ingesta | GOOGL: serie válida (5586 días)
+2026-11-02 03:00:31 | INFO     | radar.ingesta | META: serie válida (3634 días)
+2026-11-02 03:00:31 | WARNING  | radar.ingesta | AMD: día 2015-01-02 eliminado por volumen no positivo
+2026-11-02 03:00:31 | WARNING  | radar.ingesta | AMD: variación diaria de 52% el 2016-04-22, marcada para revisión
+2026-11-02 03:00:31 | INFO     | radar.ingesta | AMD: serie válida (8010 días)
+2026-11-02 03:00:31 | INFO     | radar.ingesta | AVGO: serie válida (4336 días)
+2026-11-02 03:00:31 | INFO     | radar.ingesta | TSM: serie válida (7310 días)
+2026-11-02 03:00:31 | INFO     | radar.ingesta | ORCL: serie válida (8011 días)
+2026-11-02 03:00:31 | INFO     | radar.ingesta | AMZN: serie válida (7412 días)
+2026-11-02 03:00:31 | INFO     | radar.ingesta | ^IXIC: serie válida (8011 días)
+2026-11-02 03:00:31 | INFO     | radar.ingesta | ^GSPC: serie válida (8011 días)
+2026-11-02 03:00:31 | INFO     | radar.main | Tickers procesados: NVDA, MSFT, GOOGL, META, AMD, AVGO, TSM, ORCL, AMZN, ^IXIC, ^GSPC
+2026-11-02 03:00:31 | INFO     | radar.kpis | KPI IL3 [MEDIDO] cobertura de fuentes: 11/11 series válidas (100.0%, meta ≥ 98%)
+2026-11-02 03:00:31 | INFO     | radar.kpis | KPI IL3 [MEDIDO] completitud: 99.999% de los días descargados son válidos (meta ≥ 98%)
+2026-11-02 03:00:31 | INFO     | radar.kpis |     AMD: 8010 de 8011 días válidos (99.99%)
+2026-11-02 03:00:31 | INFO     | radar.kpis | KPI IL3 [MEDIDO] tasa de duplicidad: 0.00% de filas (ticker, fecha) repetidas (meta 0%)
+2026-11-02 03:00:31 | INFO     | radar.kpis | KPI IL3 [MEDIDO] campos documentados: 100% de las columnas en el diccionario (meta 100%)
+2026-11-02 03:00:31 | INFO     | radar.kpis | KPI IL3 [MEDIDO] frescura: 3 días desde el último dato (2026-10-30; meta ≤ 7 días)
+2026-11-02 03:00:31 | INFO     | radar.kpis | KPI_IL3 cobertura=1.0000 completitud=1.0000 duplicidad=0.0000 campos=1.0000 frescura_dias=3
+2026-11-02 03:00:31 | INFO     | radar.monitoreo | Deriva de filas: 75320 filas vs. 75320 en la corrida anterior (+0.00%)
+2026-11-02 03:00:32 | INFO     | radar.ingesta | Archivos guardados en data/processed
+2026-11-02 03:00:32 | INFO     | radar.features | Umbrales BSADF (260 semanas): amarillo 0.360, rojo 0.694; persistencia 6 semanas
+2026-11-02 03:00:33 | INFO     | radar.features | AMD: 1402 semanas con BSADF, semáforo actual amarillo (bruto verde)
+2026-11-02 03:00:33 | INFO     | radar.features | AMZN: 1279 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 03:00:33 | INFO     | radar.features | AVGO: 641 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 03:00:34 | INFO     | radar.features | GOOGL: 900 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 03:00:34 | INFO     | radar.features | META: 496 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 03:00:34 | INFO     | radar.features | MSFT: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 03:00:34 | INFO     | radar.features | NVDA: 1191 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 03:00:35 | INFO     | radar.features | ORCL: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 03:00:35 | INFO     | radar.features | TSM: 1258 semanas con BSADF, semáforo actual rojo (bruto amarillo)
+2026-11-02 03:00:36 | INFO     | radar.features | ^GSPC: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 03:00:36 | INFO     | radar.features | ^IXIC: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 03:00:36 | INFO     | radar.perfiles | Perfiles K-Means: entrenando el modelo (no había uno guardado)
+2026-11-02 03:00:55 | INFO     | radar.perfiles | Modelo K-Means guardado en perfiles_kmeans.json (k = 3)
+2026-11-02 03:00:55 | INFO     | radar.features | Panel semanal y semáforo actual guardados en data/processed
+2026-11-02 03:00:55 | INFO     | radar.main | Semáforo al 30-10-2026: TSM rojo, AMD amarillo, ^GSPC verde, ^IXIC verde, NVDA verde, GOOGL verde, AVGO verde, META verde, MSFT verde, AMZN verde, ORCL verde
+2026-11-02 03:00:56 | INFO     | radar.reporte | Reporte generado: reporte_radar_2026-10-30.xlsx
+2026-11-02 03:00:56 | INFO     | radar.main | FIN de la ejecución: estado OK, duración 25.0 s
+2026-11-02 03:00:56 | INFO     | radar.main | RESUMEN_EJECUCION estado=OK modo=offline origen=manual fin_utc=2026-11-02T06:00:56Z duracion_s=25.0 series_validas=11/11 pct_validas=100.0 filas=75320 alertas=0 excluidos=- reporte=reporte_radar_2026-10-30.xlsx
+2026-11-02 03:00:56 | INFO     | radar.kpis | KPI IL4 [MEDIDO] corridas sin error: 13/13 (100.0%; tasa de fallos 0.0%, meta < 1%); por origen: manual 3/3, no_registrado 9/9, pruebas 1/1
+2026-11-02 03:00:56 | INFO     | radar.kpis | KPI IL4 [MEDIDO] duración: máxima 25.0 s, promedio 9.3 s (meta < 300 s)
+2026-11-02 03:00:56 | INFO     | radar.kpis | KPI IL4 [DEFINIDO] SLA (reporte antes del lunes 08:00 en Chile): sin corridas programadas todavía
+2026-11-02 03:00:56 | INFO     | radar.kpis | KPI IL4 [DEFINIDO] frecuencia de uso: 0 revisiones registradas (usuario hipotético: aún no hay comité real)
+2026-11-02 03:06:58 | INFO     | radar.main | INICIO de la ejecución (modo offline, origen pruebas)
+2026-11-02 03:06:58 | INFO     | radar.main | Modo offline: 75320 filas leídas de data/raw/precios_diarios.csv
+2026-11-02 03:06:58 | INFO     | radar.ingesta | NVDA: serie válida (6987 días)
+2026-11-02 03:06:58 | INFO     | radar.ingesta | MSFT: serie válida (8011 días)
+2026-11-02 03:06:58 | INFO     | radar.ingesta | GOOGL: serie válida (5586 días)
+2026-11-02 03:06:58 | INFO     | radar.ingesta | META: serie válida (3634 días)
+2026-11-02 03:06:58 | WARNING  | radar.ingesta | AMD: día 2015-01-02 eliminado por volumen no positivo
+2026-11-02 03:06:58 | WARNING  | radar.ingesta | AMD: variación diaria de 52% el 2016-04-22, marcada para revisión
+2026-11-02 03:06:58 | INFO     | radar.ingesta | AMD: serie válida (8010 días)
+2026-11-02 03:06:58 | INFO     | radar.ingesta | AVGO: serie válida (4336 días)
+2026-11-02 03:06:58 | INFO     | radar.ingesta | TSM: serie válida (7310 días)
+2026-11-02 03:06:59 | INFO     | radar.ingesta | ORCL: serie válida (8011 días)
+2026-11-02 03:06:59 | INFO     | radar.ingesta | AMZN: serie válida (7412 días)
+2026-11-02 03:06:59 | INFO     | radar.ingesta | ^IXIC: serie válida (8011 días)
+2026-11-02 03:06:59 | INFO     | radar.ingesta | ^GSPC: serie válida (8011 días)
+2026-11-02 03:06:59 | INFO     | radar.main | Tickers procesados: NVDA, MSFT, GOOGL, META, AMD, AVGO, TSM, ORCL, AMZN, ^IXIC, ^GSPC
+2026-11-02 03:06:59 | INFO     | radar.kpis | KPI IL3 [MEDIDO] cobertura de fuentes: 11/11 series válidas (100.0%, meta ≥ 98%)
+2026-11-02 03:06:59 | INFO     | radar.kpis | KPI IL3 [MEDIDO] completitud: 99.999% de los días descargados son válidos (meta ≥ 98%)
+2026-11-02 03:06:59 | INFO     | radar.kpis |     AMD: 8010 de 8011 días válidos (99.99%)
+2026-11-02 03:06:59 | INFO     | radar.kpis | KPI IL3 [MEDIDO] tasa de duplicidad: 0.00% de filas (ticker, fecha) repetidas (meta 0%)
+2026-11-02 03:06:59 | INFO     | radar.kpis | KPI IL3 [MEDIDO] campos documentados: 100% de las columnas en el diccionario (meta 100%)
+2026-11-02 03:06:59 | INFO     | radar.kpis | KPI IL3 [MEDIDO] frescura: 3 días desde el último dato (2026-10-30; meta ≤ 7 días)
+2026-11-02 03:06:59 | INFO     | radar.kpis | KPI_IL3 cobertura=1.0000 completitud=1.0000 duplicidad=0.0000 campos=1.0000 frescura_dias=3
+2026-11-02 03:06:59 | INFO     | radar.monitoreo | Deriva de filas: 75320 filas vs. 75320 en la corrida anterior (+0.00%)
+2026-11-02 03:07:00 | INFO     | radar.ingesta | Archivos guardados en data/processed
+2026-11-02 03:07:00 | INFO     | radar.features | Umbrales BSADF (260 semanas): amarillo 0.360, rojo 0.694; persistencia 6 semanas
+2026-11-02 03:07:01 | INFO     | radar.features | AMD: 1402 semanas con BSADF, semáforo actual amarillo (bruto verde)
+2026-11-02 03:07:01 | INFO     | radar.features | AMZN: 1279 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 03:07:02 | INFO     | radar.features | AVGO: 641 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 03:07:02 | INFO     | radar.features | GOOGL: 900 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 03:07:02 | INFO     | radar.features | META: 496 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 03:07:03 | INFO     | radar.features | MSFT: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 03:07:03 | INFO     | radar.features | NVDA: 1191 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 03:07:04 | INFO     | radar.features | ORCL: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 03:07:04 | INFO     | radar.features | TSM: 1258 semanas con BSADF, semáforo actual rojo (bruto amarillo)
+2026-11-02 03:07:05 | INFO     | radar.features | ^GSPC: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 03:07:06 | INFO     | radar.features | ^IXIC: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 03:07:06 | INFO     | radar.perfiles | Perfiles K-Means: modelo guardado (k = 3, datos hasta 2026-10-30, entrenado 2026-11-02 03:04:40)
+2026-11-02 03:07:06 | INFO     | radar.features | Panel semanal y semáforo actual guardados en data/processed
+2026-11-02 03:07:06 | INFO     | radar.main | Semáforo al 30-10-2026: TSM rojo, AMD amarillo, ^GSPC verde, ^IXIC verde, NVDA verde, GOOGL verde, AVGO verde, META verde, MSFT verde, AMZN verde, ORCL verde
+2026-11-02 03:07:06 | INFO     | radar.reporte | Reporte generado: reporte_radar_2026-10-30.xlsx
+2026-11-02 03:07:06 | INFO     | radar.main | FIN de la ejecución: estado OK, duración 8.4 s
+2026-11-02 03:07:06 | INFO     | radar.main | RESUMEN_EJECUCION estado=OK modo=offline origen=pruebas fin_utc=2026-11-02T06:07:06Z duracion_s=8.4 series_validas=11/11 pct_validas=100.0 filas=75320 alertas=0 excluidos=- reporte=reporte_radar_2026-10-30.xlsx
+2026-11-02 03:07:06 | INFO     | radar.kpis | KPI IL4 [MEDIDO] corridas sin error: 14/14 (100.0%; tasa de fallos 0.0%, meta < 1%); por origen: manual 3/3, no_registrado 9/9, pruebas 2/2
+2026-11-02 03:07:06 | INFO     | radar.kpis | KPI IL4 [MEDIDO] duración: máxima 25.0 s, promedio 9.2 s (meta < 300 s)
+2026-11-02 03:07:06 | INFO     | radar.kpis | KPI IL4 [DEFINIDO] SLA (reporte antes del lunes 08:00 en Chile): sin corridas programadas todavía
+2026-11-02 03:07:06 | INFO     | radar.kpis | KPI IL4 [DEFINIDO] frecuencia de uso: 0 revisiones registradas (usuario hipotético: aún no hay comité real)
+2026-11-02 03:07:22 | INFO     | radar.main | INICIO de la ejecución (modo offline, origen manual)
+2026-11-02 03:07:22 | INFO     | radar.main | Modo offline: 75320 filas leídas de data/raw/precios_diarios.csv
+2026-11-02 03:07:22 | INFO     | radar.ingesta | NVDA: serie válida (6987 días)
+2026-11-02 03:07:22 | INFO     | radar.ingesta | MSFT: serie válida (8011 días)
+2026-11-02 03:07:22 | INFO     | radar.ingesta | GOOGL: serie válida (5586 días)
+2026-11-02 03:07:22 | INFO     | radar.ingesta | META: serie válida (3634 días)
+2026-11-02 03:07:22 | WARNING  | radar.ingesta | AMD: día 2015-01-02 eliminado por volumen no positivo
+2026-11-02 03:07:23 | WARNING  | radar.ingesta | AMD: variación diaria de 52% el 2016-04-22, marcada para revisión
+2026-11-02 03:07:23 | INFO     | radar.ingesta | AMD: serie válida (8010 días)
+2026-11-02 03:07:23 | INFO     | radar.ingesta | AVGO: serie válida (4336 días)
+2026-11-02 03:07:23 | INFO     | radar.ingesta | TSM: serie válida (7310 días)
+2026-11-02 03:07:23 | INFO     | radar.ingesta | ORCL: serie válida (8011 días)
+2026-11-02 03:07:23 | INFO     | radar.ingesta | AMZN: serie válida (7412 días)
+2026-11-02 03:07:23 | INFO     | radar.ingesta | ^IXIC: serie válida (8011 días)
+2026-11-02 03:07:23 | INFO     | radar.ingesta | ^GSPC: serie válida (8011 días)
+2026-11-02 03:07:23 | INFO     | radar.main | Tickers procesados: NVDA, MSFT, GOOGL, META, AMD, AVGO, TSM, ORCL, AMZN, ^IXIC, ^GSPC
+2026-11-02 03:07:23 | INFO     | radar.kpis | KPI IL3 [MEDIDO] cobertura de fuentes: 11/11 series válidas (100.0%, meta ≥ 98%)
+2026-11-02 03:07:23 | INFO     | radar.kpis | KPI IL3 [MEDIDO] completitud: 99.999% de los días descargados son válidos (meta ≥ 98%)
+2026-11-02 03:07:23 | INFO     | radar.kpis |     AMD: 8010 de 8011 días válidos (99.99%)
+2026-11-02 03:07:23 | INFO     | radar.kpis | KPI IL3 [MEDIDO] tasa de duplicidad: 0.00% de filas (ticker, fecha) repetidas (meta 0%)
+2026-11-02 03:07:23 | INFO     | radar.kpis | KPI IL3 [MEDIDO] campos documentados: 100% de las columnas en el diccionario (meta 100%)
+2026-11-02 03:07:23 | INFO     | radar.kpis | KPI IL3 [MEDIDO] frescura: 3 días desde el último dato (2026-10-30; meta ≤ 7 días)
+2026-11-02 03:07:23 | INFO     | radar.kpis | KPI_IL3 cobertura=1.0000 completitud=1.0000 duplicidad=0.0000 campos=1.0000 frescura_dias=3
+2026-11-02 03:07:23 | INFO     | radar.monitoreo | Deriva de filas: 75320 filas vs. 75320 en la corrida anterior (+0.00%)
+2026-11-02 03:07:25 | INFO     | radar.ingesta | Archivos guardados en data/processed
+2026-11-02 03:07:25 | INFO     | radar.features | Umbrales BSADF (260 semanas): amarillo 0.360, rojo 0.694; persistencia 6 semanas
+2026-11-02 03:07:26 | INFO     | radar.features | AMD: 1402 semanas con BSADF, semáforo actual amarillo (bruto verde)
+2026-11-02 03:07:26 | INFO     | radar.features | AMZN: 1279 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 03:07:26 | INFO     | radar.features | AVGO: 641 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 03:07:27 | INFO     | radar.features | GOOGL: 900 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 03:07:27 | INFO     | radar.features | META: 496 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 03:07:28 | INFO     | radar.features | MSFT: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 03:07:28 | INFO     | radar.features | NVDA: 1191 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 03:07:29 | INFO     | radar.features | ORCL: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 03:07:30 | INFO     | radar.features | TSM: 1258 semanas con BSADF, semáforo actual rojo (bruto amarillo)
+2026-11-02 03:07:30 | INFO     | radar.features | ^GSPC: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 03:07:31 | INFO     | radar.features | ^IXIC: 1402 semanas con BSADF, semáforo actual verde (bruto verde)
+2026-11-02 03:07:31 | INFO     | radar.perfiles | Perfiles K-Means: modelo guardado (k = 3, datos hasta 2026-10-30, entrenado 2026-11-02 03:04:40)
+2026-11-02 03:07:31 | INFO     | radar.features | Panel semanal y semáforo actual guardados en data/processed
+2026-11-02 03:07:31 | INFO     | radar.main | Semáforo al 30-10-2026: TSM rojo, AMD amarillo, ^GSPC verde, ^IXIC verde, NVDA verde, GOOGL verde, AVGO verde, META verde, MSFT verde, AMZN verde, ORCL verde
+2026-11-02 03:07:32 | INFO     | radar.reporte | Reporte generado: reporte_radar_2026-10-30.xlsx
+2026-11-02 03:07:32 | INFO     | radar.main | FIN de la ejecución: estado OK, duración 9.6 s
+2026-11-02 03:07:32 | INFO     | radar.main | RESUMEN_EJECUCION estado=OK modo=offline origen=manual fin_utc=2026-11-02T06:07:32Z duracion_s=9.6 series_validas=11/11 pct_validas=100.0 filas=75320 alertas=0 excluidos=- reporte=reporte_radar_2026-10-30.xlsx
+2026-11-02 03:07:32 | INFO     | radar.kpis | KPI IL4 [MEDIDO] corridas sin error: 15/15 (100.0%; tasa de fallos 0.0%, meta < 1%); por origen: manual 4/4, no_registrado 9/9, pruebas 2/2
+2026-11-02 03:07:32 | INFO     | radar.kpis | KPI IL4 [MEDIDO] duración: máxima 25.0 s, promedio 9.2 s (meta < 300 s)
+2026-11-02 03:07:32 | INFO     | radar.kpis | KPI IL4 [DEFINIDO] SLA (reporte antes del lunes 08:00 en Chile): sin corridas programadas todavía
+2026-11-02 03:07:32 | INFO     | radar.kpis | KPI IL4 [DEFINIDO] frecuencia de uso: 0 revisiones registradas (usuario hipotético: aún no hay comité real)
