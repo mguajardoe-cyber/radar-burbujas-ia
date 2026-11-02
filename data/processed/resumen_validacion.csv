@@ -1,0 +1,12 @@
+ticker,n_dias,fecha_inicio,fecha_fin,duplicados,filas_incompletas,dias_precio_no_positivo,dias_volumen_cero_eliminados,max_hueco_dias_habiles,saltos_marcados_revision,valida,motivo_exclusion
+NVDA,6987,1999-01-22,2026-10-30,0,0,0,0,4,0,True,
+MSFT,8011,1995-01-03,2026-10-30,0,0,0,0,4,0,True,
+GOOGL,5586,2004-08-19,2026-10-30,0,0,0,0,2,0,True,
+META,3634,2012-05-18,2026-10-30,0,0,0,0,2,0,True,
+AMD,8010,1995-01-03,2026-10-30,0,0,0,1,4,1,True,
+AVGO,4336,2009-08-06,2026-10-30,0,0,0,0,2,0,True,
+TSM,7310,1997-10-09,2026-10-30,0,0,0,0,4,0,True,
+ORCL,8011,1995-01-03,2026-10-30,0,0,0,0,4,0,True,
+AMZN,7412,1997-05-15,2026-10-30,0,0,0,0,4,0,True,
+^IXIC,8011,1995-01-03,2026-10-30,0,0,0,0,4,0,True,
+^GSPC,8011,1995-01-03,2026-10-30,0,0,0,0,4,0,True,

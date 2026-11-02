@@ -1,0 +1,12 @@
+columna,definicion,unidad,tipo,origen
+ticker,Símbolo bursátil de la acción o índice en Yahoo Finance,texto,str,Yahoo Finance
+fecha,Día de negociación (hora de Nueva York),fecha AAAA-MM-DD,date,Yahoo Finance
+open,Precio de apertura del día (ajustado por splits),USD por acción (puntos para índices),float,Yahoo Finance
+high,Precio máximo del día (ajustado por splits),USD por acción (puntos para índices),float,Yahoo Finance
+low,Precio mínimo del día (ajustado por splits),USD por acción (puntos para índices),float,Yahoo Finance
+close,Precio de cierre del día (ajustado por splits),USD por acción (puntos para índices),float,Yahoo Finance
+adj_close,Precio de cierre ajustado por splits y dividendos; base de todos los cálculos de retorno,USD por acción (puntos para índices),float,Yahoo Finance
+volume,Número de acciones transadas en el día,acciones (unidades),int,Yahoo Finance
+revisar,Verdadero si la variación diaria de adj_close supera 50% (marcado para revisión; no excluye la serie),booleano,bool,Calculado (src/ingesta.py)
+fuente,Origen de los datos,texto,str,Calculado (src/ingesta.py)
+fecha_descarga,Fecha y hora local de la descarga,fecha y hora AAAA-MM-DD HH:MM:SS,str,Calculado (src/ingesta.py)
