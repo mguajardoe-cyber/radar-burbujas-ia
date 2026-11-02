@@ -1,0 +1,210 @@
+{
+ "sesgo_anticipacion": {
+  "caso_unitario_primera_semana_reducida": 12,
+  "caso_unitario_ok": true,
+  "perturbacion_futuro_no_cambia_pasado": true,
+  "cambio_color_k_afecta_desde": 902,
+  "k": 900,
+  "ok": true
+ },
+ "metricas_propias": {
+  "Nasdaq completo": {
+   "Mantener 100%": {
+    "caida_maxima": -0.7742155286088191,
+    "retorno_anual": 0.11692737290462674,
+    "sharpe": 0.6056316479609818
+   },
+   "v1": {
+    "caida_maxima": -0.7315469487339088,
+    "retorno_anual": 0.12082051521005188,
+    "sharpe": 0.6399705568384231
+   },
+   "v2": {
+    "caida_maxima": -0.6479175098643815,
+    "retorno_anual": 0.11071735785183923,
+    "sharpe": 0.6310468809060489
+   }
+  },
+  "Nasdaq 2000-2002": {
+   "Mantener 100%": {
+    "caida_maxima": -0.774215528608819,
+    "retorno_anual": -0.18098320883622598,
+    "sharpe": -0.32272350075858064
+   },
+   "v1": {
+    "caida_maxima": -0.731546948733909,
+    "retorno_anual": -0.1489670214438139,
+    "sharpe": -0.2893212881229575
+   },
+   "v2": {
+    "caida_maxima": -0.6479175098643817,
+    "retorno_anual": -0.11900977546602132,
+    "sharpe": -0.3268089155095282
+   }
+  },
+  "Nasdaq 2007-2009": {
+   "Mantener 100%": {
+    "caida_maxima": -0.5396174077750967,
+    "retorno_anual": -0.22307721437040673,
+    "sharpe": -0.8111228005930324
+   },
+   "v1": {
+    "caida_maxima": -0.5396174077750967,
+    "retorno_anual": -0.22307721437040673,
+    "sharpe": -0.8111228005930324
+   },
+   "v2": {
+    "caida_maxima": -0.5396174077750967,
+    "retorno_anual": -0.22307721437040673,
+    "sharpe": -0.8111228005930324
+   }
+  },
+  "Nasdaq 2021-2022": {
+   "Mantener 100%": {
+    "caida_maxima": -0.35722074177183316,
+    "retorno_anual": -0.06845178808001595,
+    "sharpe": -0.20919020235119304
+   },
+   "v1": {
+    "caida_maxima": -0.35722074177183316,
+    "retorno_anual": -0.06845178808001595,
+    "sharpe": -0.20919020235119304
+   },
+   "v2": {
+    "caida_maxima": -0.35722074177183316,
+    "retorno_anual": -0.06845178808001595,
+    "sharpe": -0.20919020235119304
+   }
+  },
+  "Nikkei 1989": {
+   "Mantener 100%": {
+    "caida_maxima": -0.6191720862601948,
+    "retorno_anual": -0.17314475354390435,
+    "sharpe": -0.7796391183581186
+   },
+   "v1": {
+    "caida_maxima": -0.6191720862601946,
+    "retorno_anual": -0.17685932463737908,
+    "sharpe": -0.8112599263107431
+   },
+   "v2": {
+    "caida_maxima": -0.5769964020247962,
+    "retorno_anual": -0.1696914912611962,
+    "sharpe": -0.8243674232580704
+   }
+  },
+  "Bitcoin 2021": {
+   "Mantener 100%": {
+    "caida_maxima": -0.7424737064918905,
+    "retorno_anual": 0.029388964702538045,
+    "sharpe": 0.41311868313931055
+   },
+   "v1": {
+    "caida_maxima": -0.7424737064918905,
+    "retorno_anual": 0.05398216600695305,
+    "sharpe": 0.4083027903288496
+   },
+   "v2": {
+    "caida_maxima": -0.5351203129935971,
+    "retorno_anual": 0.21356865842965367,
+    "sharpe": 0.6085882491744669
+   }
+  },
+  "Cartera B": {
+   "Mantener 100%": {
+    "caida_maxima": -0.45374090377427434,
+    "retorno_anual": 0.3365954811994263,
+    "sharpe": 1.2087942710022186
+   },
+   "v1": {
+    "caida_maxima": -0.43455987143455865,
+    "retorno_anual": 0.3361351959817438,
+    "sharpe": 1.269092367759516
+   },
+   "v2": {
+    "caida_maxima": -0.3789665025146679,
+    "retorno_anual": 0.31470117321886804,
+    "sharpe": 1.3053918530156283
+   }
+  }
+ },
+ "ventanas_episodios": {
+  "Nasdaq 2000-2002": {
+   "inicio": "1999-03-12",
+   "peak": "2000-03-10",
+   "valle": "2002-10-04"
+  },
+  "Nasdaq 2007-2009": {
+   "inicio": "2006-11-03",
+   "peak": "2007-11-02",
+   "valle": "2009-03-06"
+  },
+  "Nasdaq 2021-2022": {
+   "inicio": "2020-11-20",
+   "peak": "2021-11-19",
+   "valle": "2022-10-14"
+  },
+  "Nikkei 1989": {
+   "inicio": "1988-12-30",
+   "peak": "1989-12-29",
+   "valle": "1992-08-14"
+  },
+  "Bitcoin 2021": {
+   "inicio": "2020-11-13",
+   "peak": "2021-11-12",
+   "valle": "2022-11-25"
+  }
+ },
+ "dif_max_vs_src_series": 0.0,
+ "placebo": {
+  "src_conserva_episodios": true,
+  "detalle": {
+   "A v1": true,
+   "A v2": true,
+   "B NVDA v1": true,
+   "B NVDA v2": true,
+   "B MSFT v1": true,
+   "B MSFT v2": true,
+   "B GOOGL v1": true,
+   "B GOOGL v2": true,
+   "B META v1": true,
+   "B META v2": true,
+   "B AMD v1": true,
+   "B AMD v2": true,
+   "B AVGO v1": true,
+   "B AVGO v2": true,
+   "B TSM v1": true,
+   "B TSM v2": true,
+   "B ORCL v1": true,
+   "B ORCL v2": true,
+   "B AMZN v1": true,
+   "B AMZN v2": true
+  },
+  "percentiles_generador_propio_semilla_2026": {
+   "Nasdaq completo v1": 14.499999999999998,
+   "Nasdaq completo v2": 11.4,
+   "Nikkei 1989 v2": 52.2,
+   "Bitcoin 2021 v2": 13.700000000000001,
+   "Cartera B v1": 47.699999999999996,
+   "Cartera B v2": 27.400000000000002
+  }
+ },
+ "anticipacion": {
+  "Nasdaq 2000-2002": 11,
+  "Nikkei 1989": 45,
+  "Bitcoin 2021": 42,
+  "Nasdaq 2000-2002 sin persistencia": 16
+ },
+ "rojo_cerca_peaks_sin_burbuja": {
+  "Nasdaq 2007-2009": {
+   "semanas_rojo_persistente": 0,
+   "semanas_rojo_bruto": 7,
+   "max_nivel_persistente": 1
+  },
+  "Nasdaq 2021-2022": {
+   "semanas_rojo_persistente": 0,
+   "semanas_rojo_bruto": 0,
+   "max_nivel_persistente": 0
+  }
+ }
+}

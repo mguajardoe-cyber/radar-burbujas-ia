@@ -1,0 +1,41 @@
+{
+ "universo": {
+  "episodios_rojos_bruto": 204,
+  "episodios_rojos_persistencia": 32,
+  "pct_rojo_bruto": 0.06590998043052837,
+  "pct_rojo_persistencia": 0.043365949119373776,
+  "series_rojo_desde_2023_bruto": [
+   "NVDA",
+   "MSFT",
+   "GOOGL",
+   "META",
+   "AMD",
+   "AVGO",
+   "TSM",
+   "ORCL"
+  ],
+  "series_rojo_desde_2023_persistencia": [
+   "NVDA",
+   "GOOGL",
+   "META",
+   "AMD",
+   "AVGO",
+   "TSM"
+  ]
+ },
+ "falsas_alarmas": {
+  "bruto_media": 17.575,
+  "bruto_ee": 0.4396269725574171,
+  "pers_media": 2.87,
+  "pers_ee": 0.12851264529220463,
+  "segundos": 116.3932774066925
+ },
+ "il4": {
+  "ok": 6,
+  "total": 6,
+  "max_normal": 14.6,
+  "offline_min": 5.9,
+  "offline_max": 10.9
+ },
+ "pct_columnas": 1.0
+}

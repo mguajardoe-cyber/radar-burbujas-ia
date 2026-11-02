@@ -1,0 +1,415 @@
+{
+ "bsadf_vs_src": {
+  "semanas": 90,
+  "dif_max_src": 3.8155034687292755e-12,
+  "dif_max_numpy_propio": 2.809530386116421e-12
+ },
+ "bsadf_propio_vs_panel": 8.971867693219338e-11,
+ "valores_criticos": {
+  "propio": {
+   "0.9": 0.3511980361222801,
+   "0.95": 0.7163221260825523
+  },
+  "error_estandar": {
+   "0.9": 0.02280560116487514,
+   "0.95": 0.022155436723025352
+  },
+  "referencia": {
+   "0.9": 0.35987635352985636,
+   "0.95": 0.6943720334004567
+  },
+  "z": {
+   "0.9": -0.3403603792483752,
+   "0.95": 0.8861373388966389
+  },
+  "lotes_semillas": "2026-2033, 625 c/u"
+ },
+ "persistencia_casos": {
+  "rojo aislado en verde": {
+   "esperado": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "propio": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "src": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "ok": true
+  },
+  "5 rojos no bastan, 6 sí": {
+   "esperado": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2
+   ],
+   "propio": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    2.0
+   ],
+   "src": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2
+   ],
+   "ok": true
+  },
+  "verde aislado no apaga rojo": {
+   "esperado": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "propio": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0
+   ],
+   "src": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "ok": true
+  },
+  "alternancia A/R sube a amarillo": {
+   "esperado": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "propio": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "src": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+   ],
+   "ok": true
+  },
+  "baja de rojo a amarillo": {
+   "esperado": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    1
+   ],
+   "propio": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    1.0
+   ],
+   "src": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    1
+   ],
+   "ok": true
+  },
+  "baja de rojo a verde con mezcla": {
+   "esperado": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    1
+   ],
+   "propio": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    2.0,
+    1.0
+   ],
+   "src": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    1
+   ],
+   "ok": true
+  },
+  "serie empieza en rojo parte en verde": {
+   "esperado": [
+    0,
+    0,
+    0
+   ],
+   "propio": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "src": [
+    0,
+    0,
+    0
+   ],
+   "ok": true
+  }
+ },
+ "semaforo_actual": {
+  "coincide": true,
+  "tabla": [
+   {
+    "ticker": "TSM",
+    "color_propio": "rojo",
+    "color_declarado": "rojo",
+    "semanas_propio": 23,
+    "semanas_declarado": 23,
+    "bruto_propio": "amarillo",
+    "bruto_declarado": "amarillo"
+   },
+   {
+    "ticker": "AMD",
+    "color_propio": "amarillo",
+    "color_declarado": "amarillo",
+    "semanas_propio": 11,
+    "semanas_declarado": 11,
+    "bruto_propio": "verde",
+    "bruto_declarado": "verde"
+   },
+   {
+    "ticker": "^GSPC",
+    "color_propio": "verde",
+    "color_declarado": "verde",
+    "semanas_propio": 451,
+    "semanas_declarado": 451,
+    "bruto_propio": "verde",
+    "bruto_declarado": "verde"
+   },
+   {
+    "ticker": "^IXIC",
+    "color_propio": "verde",
+    "color_declarado": "verde",
+    "semanas_propio": 653,
+    "semanas_declarado": 653,
+    "bruto_propio": "verde",
+    "bruto_declarado": "verde"
+   },
+   {
+    "ticker": "NVDA",
+    "color_propio": "verde",
+    "color_declarado": "verde",
+    "semanas_propio": 87,
+    "semanas_declarado": 87,
+    "bruto_propio": "verde",
+    "bruto_declarado": "verde"
+   },
+   {
+    "ticker": "GOOGL",
+    "color_propio": "verde",
+    "color_declarado": "verde",
+    "semanas_propio": 4,
+    "semanas_declarado": 4,
+    "bruto_propio": "verde",
+    "bruto_declarado": "verde"
+   },
+   {
+    "ticker": "AVGO",
+    "color_propio": "verde",
+    "color_declarado": "verde",
+    "semanas_propio": 38,
+    "semanas_declarado": 38,
+    "bruto_propio": "verde",
+    "bruto_declarado": "verde"
+   },
+   {
+    "ticker": "META",
+    "color_propio": "verde",
+    "color_declarado": "verde",
+    "semanas_propio": 128,
+    "semanas_declarado": 128,
+    "bruto_propio": "verde",
+    "bruto_declarado": "verde"
+   },
+   {
+    "ticker": "MSFT",
+    "color_propio": "verde",
+    "color_declarado": "verde",
+    "semanas_propio": 24,
+    "semanas_declarado": 24,
+    "bruto_propio": "verde",
+    "bruto_declarado": "verde"
+   },
+   {
+    "ticker": "AMZN",
+    "color_propio": "verde",
+    "color_declarado": "verde",
+    "semanas_propio": 316,
+    "semanas_declarado": 316,
+    "bruto_propio": "verde",
+    "bruto_declarado": "verde"
+   },
+   {
+    "ticker": "ORCL",
+    "color_propio": "verde",
+    "color_declarado": "verde",
+    "semanas_propio": 48,
+    "semanas_declarado": 48,
+    "bruto_propio": "verde",
+    "bruto_declarado": "verde"
+   }
+  ]
+ }
+}

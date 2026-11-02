@@ -1,0 +1,163 @@
+{
+ "validaciones": {
+  "coinciden": true,
+  "tabla": [
+   {
+    "ticker": "AMD",
+    "n_dias": 8010,
+    "n_dias_declarado": 8010,
+    "vol0_eliminados": 1,
+    "vol0_eliminados_declarado": 1,
+    "max_hueco": 4,
+    "max_hueco_declarado": 4,
+    "saltos": 1,
+    "saltos_declarado": 1,
+    "valida": true,
+    "valida_declarado": true
+   },
+   {
+    "ticker": "AMZN",
+    "n_dias": 7412,
+    "n_dias_declarado": 7412,
+    "vol0_eliminados": 0,
+    "vol0_eliminados_declarado": 0,
+    "max_hueco": 4,
+    "max_hueco_declarado": 4,
+    "saltos": 0,
+    "saltos_declarado": 0,
+    "valida": true,
+    "valida_declarado": true
+   },
+   {
+    "ticker": "AVGO",
+    "n_dias": 4336,
+    "n_dias_declarado": 4336,
+    "vol0_eliminados": 0,
+    "vol0_eliminados_declarado": 0,
+    "max_hueco": 2,
+    "max_hueco_declarado": 2,
+    "saltos": 0,
+    "saltos_declarado": 0,
+    "valida": true,
+    "valida_declarado": true
+   },
+   {
+    "ticker": "GOOGL",
+    "n_dias": 5586,
+    "n_dias_declarado": 5586,
+    "vol0_eliminados": 0,
+    "vol0_eliminados_declarado": 0,
+    "max_hueco": 2,
+    "max_hueco_declarado": 2,
+    "saltos": 0,
+    "saltos_declarado": 0,
+    "valida": true,
+    "valida_declarado": true
+   },
+   {
+    "ticker": "META",
+    "n_dias": 3634,
+    "n_dias_declarado": 3634,
+    "vol0_eliminados": 0,
+    "vol0_eliminados_declarado": 0,
+    "max_hueco": 2,
+    "max_hueco_declarado": 2,
+    "saltos": 0,
+    "saltos_declarado": 0,
+    "valida": true,
+    "valida_declarado": true
+   },
+   {
+    "ticker": "MSFT",
+    "n_dias": 8011,
+    "n_dias_declarado": 8011,
+    "vol0_eliminados": 0,
+    "vol0_eliminados_declarado": 0,
+    "max_hueco": 4,
+    "max_hueco_declarado": 4,
+    "saltos": 0,
+    "saltos_declarado": 0,
+    "valida": true,
+    "valida_declarado": true
+   },
+   {
+    "ticker": "NVDA",
+    "n_dias": 6987,
+    "n_dias_declarado": 6987,
+    "vol0_eliminados": 0,
+    "vol0_eliminados_declarado": 0,
+    "max_hueco": 4,
+    "max_hueco_declarado": 4,
+    "saltos": 0,
+    "saltos_declarado": 0,
+    "valida": true,
+    "valida_declarado": true
+   },
+   {
+    "ticker": "ORCL",
+    "n_dias": 8011,
+    "n_dias_declarado": 8011,
+    "vol0_eliminados": 0,
+    "vol0_eliminados_declarado": 0,
+    "max_hueco": 4,
+    "max_hueco_declarado": 4,
+    "saltos": 0,
+    "saltos_declarado": 0,
+    "valida": true,
+    "valida_declarado": true
+   },
+   {
+    "ticker": "TSM",
+    "n_dias": 7310,
+    "n_dias_declarado": 7310,
+    "vol0_eliminados": 0,
+    "vol0_eliminados_declarado": 0,
+    "max_hueco": 4,
+    "max_hueco_declarado": 4,
+    "saltos": 0,
+    "saltos_declarado": 0,
+    "valida": true,
+    "valida_declarado": true
+   },
+   {
+    "ticker": "^GSPC",
+    "n_dias": 8011,
+    "n_dias_declarado": 8011,
+    "vol0_eliminados": 0,
+    "vol0_eliminados_declarado": 0,
+    "max_hueco": 4,
+    "max_hueco_declarado": 4,
+    "saltos": 0,
+    "saltos_declarado": 0,
+    "valida": true,
+    "valida_declarado": true
+   },
+   {
+    "ticker": "^IXIC",
+    "n_dias": 8011,
+    "n_dias_declarado": 8011,
+    "vol0_eliminados": 0,
+    "vol0_eliminados_declarado": 0,
+    "max_hueco": 4,
+    "max_hueco_declarado": 4,
+    "saltos": 0,
+    "saltos_declarado": 0,
+    "valida": true,
+    "valida_declarado": true
+   }
+  ]
+ },
+ "nasdaq": {
+  "cierre_2000_03_10": 5048.6201171875,
+  "cierre_2002_10_09": 1114.1099853515625,
+  "caida": -0.7793238628593402,
+  "peak_diario": "2000-03-10",
+  "valle_diario": "2002-10-09"
+ },
+ "nasdaq_octubre_2026": {
+  "fecha_base": "2026-09-30",
+  "cierre_base": 26861.060546875,
+  "cierre_30_10": 25437.0,
+  "variacion": -0.05301579751067109
+ }
+}
