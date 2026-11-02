@@ -190,7 +190,7 @@ table{border-collapse:collapse;color:inherit;font-size:inherit;font-family:inher
     <p class="hint2">Las palabras con subrayado punteado muestran su definición al pasar el mouse.</p>
   </div>
   <div class="cfoot r5"><span>Martín Guajardo Espina</span><span class="mono">Profesores: Sebastián Egaña · César Núñez</span></div>
-</div></section><section class="slide " data-n="2"><header class="mast mono"><span>Radar de Burbujas IA</span><span>01 · Problema y usuarios</span><span>02 / 14</span></header>
+</div></section><section class="slide " data-n="2"><header class="mast mono"><span>Radar de Burbujas IA</span><span>01 · Problema y usuarios</span><span>02 / 11</span></header>
 <h2 class="title r1">El comité necesita saber que hay una burbuja <em>antes</em> del peak, no cuando ya cayó</h2>
 <div class="grid2">
   <div class="col r2">
@@ -213,12 +213,12 @@ table{border-collapse:collapse;color:inherit;font-size:inherit;font-family:inher
   </div>
 </div>
 <p class="src mono">Fuente: Yahoo Finance, ^IXIC con cierres ajustados; cálculo propio.</p>
-</section><section class="slide " data-n="3"><header class="mast mono"><span>Radar de Burbujas IA</span><span>02 · Arquitectura</span><span>03 / 14</span></header>
+</section><section class="slide " data-n="3"><header class="mast mono"><span>Radar de Burbujas IA</span><span>02 · Arquitectura</span><span>03 / 11</span></header>
 <h2 class="title r1">Siete capas llevan los precios públicos a una decisión del comité cada lunes</h2>
 <div class="flowline r2"><span class="mono">datos</span><span class="arrow"></span><span class="mono">señal</span><span class="arrow"></span><span class="mono">reporte</span><span class="arrow"></span><span class="mono">decisión</span></div>
-<div class="layers"><div class="layer r2"><p class="ln mono">1</p><h4>Propósito y usuario</h4><ul><li>Comité de inversiones AFP</li><li>Decide mantener, reducir o cubrir</li></ul></div><div class="layer r3"><p class="ln mono">2</p><h4>Entradas</h4><ul><li><span class="tip" tabindex="0" data-h="Yahoo Finance" data-t="Fuente pública de precios, descargada con la librería yfinance. Precios de cierre ajustados por dividendos y splits.">Yahoo Finance</span> (yfinance)</li><li>9 acciones de IA + <span class="tip" tabindex="0" data-h="Nasdaq Composite" data-t="Índice de las acciones de la bolsa Nasdaq, con mucho peso tecnológico. Se usa para probar el detector con la burbuja puntocom.">Nasdaq</span> y S&P 500</li><li>Diario desde 1995</li><li>Validación: duplicados, huecos, precios</li></ul><span class="iltag mono"><span class="tip" tabindex="0" data-h="IL3" data-t="Nivel de madurez 3: los datos son confiables y están documentados.">IL3</span></span></div><div class="layer r4 hl"><p class="ln mono">3</p><h4>Procesamiento</h4><ul><li>Cierre semanal (viernes)</li><li>Test <span class="tip" tabindex="0" data-h="BSADF" data-t="Estadístico de Phillips, Shi y Yu (2015). Para cada semana corre la prueba ADF desde distintos puntos de partida de los últimos 5 años y guarda el valor más alto. Si supera el umbral, el precio está creciendo de forma explosiva.">BSADF</span>, ventana de 5 años</li><li><span class="tip" tabindex="0" data-h="Umbral" data-t="Valor del BSADF que solo se supera por azar en 10% (amarillo, 0,36) o 5% (rojo, 0,69) de las series sin burbuja.">Umbrales</span> por <span class="tip" tabindex="0" data-h="Monte Carlo" data-t="Simular muchas veces un escenario con números aleatorios. Aquí: 20.000 series sin burbuja para saber qué valores del BSADF son normales.">Monte Carlo</span></li><li><span class="tip" tabindex="0" data-h="Persistencia" data-t="El color cambia solo si la señal se mantiene 6 semanas seguidas en la nueva zona. Evita que una semana aislada encienda o apague la alerta.">Persistencia</span> de 6 semanas</li><li><span class="tip" tabindex="0" data-h="Momentum" data-t="Variación del precio en las últimas 52 semanas. Ejemplo: +37% significa que la acción vale 37% más que hace un año.">Momentum</span>, <span class="tip" tabindex="0" data-h="Volatilidad anual" data-t="Desviación estándar de los retornos semanales de las últimas 52 semanas, llevada a base anual (× √52). Mide cuánto se mueve el precio.">volatilidad</span>, <span class="tip" tabindex="0" data-h="Beta" data-t="Sensibilidad de la acción al mercado (S&amp;P 500), calculada con 104 semanas. Beta 1,5: si el mercado sube 1%, la acción tiende a subir 1,5%.">beta</span></li><li><span class="tip" tabindex="0" data-h="Perfil de riesgo" data-t="Grupo de K-Means al que pertenece la semana actual de la acción: estable, volátil-sensible al mercado o explosivo-alcista. Describe el riesgo; no cambia el semáforo.">Perfil de riesgo</span> <span class="tip" tabindex="0" data-h="K-Means" data-t="Algoritmo de aprendizaje no supervisado que agrupa observaciones parecidas. Aquí agrupa semanas de cada acción según BSADF, momentum, volatilidad y beta.">K-Means</span></li></ul><span class="iltag mono"><span class="tip" tabindex="0" data-h="IL4" data-t="Nivel de madurez 4: el producto opera de forma estable y repetible.">IL4</span></span></div><div class="layer r5"><p class="ln mono">4</p><h4>Salidas</h4><ul><li>Excel del lunes: semáforo, variables, perfil y gráficos</li><li>Log de cada corrida</li></ul></div><div class="layer r6"><p class="ln mono">5</p><h4>Consumo</h4><ul><li>Reunión semanal del comité</li><li>Guía de interpretación</li><li>Hoja de registro de revisión</li></ul></div><div class="layer r7"><p class="ln mono">6</p><h4>Mantenimiento</h4><ul><li>Ejecución semanal (<span class="tip" tabindex="0" data-h="GitHub Actions" data-t="Servicio de GitHub que ejecuta el código en horario programado: cada lunes 02:00 UTC corre el radar sin intervención.">GitHub Actions</span>)</li><li><span class="tip" tabindex="0" data-h="Pruebas automáticas" data-t="20 tests que verifican el código cada vez que cambia (integración continua). Si uno falla, se detecta antes de publicar.">20 pruebas automáticas</span></li><li><span class="tip" tabindex="0" data-h="Alerta de deriva" data-t="Aviso si cambia mucho el volumen de datos descargados (±10%) o una serie se mueve más de 50% en una semana: puede ser un error de datos.">Alertas de deriva</span></li><li>No publica si &lt; 98% de datos válidos</li><li>Gobernanza y recalibración trimestral</li></ul></div><div class="layer r8 hl"><p class="ln mono">7</p><h4>KPIs</h4><ul><li>IL3 · calidad de datos</li><li>IL4 · operación</li><li><span class="tip" tabindex="0" data-h="IL5" data-t="Nivel de madurez 5: el producto genera valor medible en la decisión del negocio.">IL5</span> · valor para la decisión</li></ul><span class="iltag mono">IL5</span></div></div>
+<div class="layers"><div class="layer r2"><p class="ln mono">1</p><h4>Propósito y usuario</h4><ul><li>Comité de inversiones AFP</li><li>Decide mantener, reducir o cubrir</li></ul></div><div class="layer r3"><p class="ln mono">2</p><h4>Entradas</h4><ul><li><span class="tip" tabindex="0" data-h="Yahoo Finance" data-t="Fuente pública de precios, descargada con la librería yfinance. Precios de cierre ajustados por dividendos y splits.">Yahoo Finance</span> (yfinance)</li><li>9 acciones de IA + <span class="tip" tabindex="0" data-h="Nasdaq Composite" data-t="Índice de las acciones de la bolsa Nasdaq, con mucho peso tecnológico. Se usa para probar el detector con la burbuja puntocom.">Nasdaq</span> y S&P 500</li><li>Diario desde 1995</li><li>Validación: duplicados, huecos, precios</li></ul><span class="iltag mono"><span class="tip" tabindex="0" data-h="IL3" data-t="Nivel de madurez 3: los datos son confiables y están documentados.">IL3</span></span></div><div class="layer r4 hl"><p class="ln mono">3</p><h4>Procesamiento</h4><ul><li>Cierre semanal (viernes)</li><li>Test <span class="tip" tabindex="0" data-h="BSADF" data-t="Estadístico de Phillips, Shi y Yu (2015). Para cada semana corre la prueba ADF desde distintos puntos de partida de los últimos 5 años y guarda el valor más alto. Si supera el umbral, el precio está creciendo de forma explosiva.">BSADF</span>, ventana de 5 años</li><li><span class="tip" tabindex="0" data-h="Umbral" data-t="Valor del BSADF que solo se supera por azar en 10% (amarillo, 0,36) o 5% (rojo, 0,69) de las series sin burbuja.">Umbrales</span> por <span class="tip" tabindex="0" data-h="Monte Carlo" data-t="Simular muchas veces un escenario con números aleatorios. Aquí: 20.000 series sin burbuja para saber qué valores del BSADF son normales.">Monte Carlo</span></li><li><span class="tip" tabindex="0" data-h="Persistencia" data-t="El color cambia solo si la señal se mantiene 6 semanas seguidas en la nueva zona. Evita que una semana aislada encienda o apague la alerta.">Persistencia</span> de 6 semanas</li><li><span class="tip" tabindex="0" data-h="Momentum" data-t="Variación del precio en las últimas 52 semanas. Ejemplo: +37% significa que la acción vale 37% más que hace un año.">Momentum</span>, <span class="tip" tabindex="0" data-h="Volatilidad anual" data-t="Desviación estándar de los retornos semanales de las últimas 52 semanas, llevada a base anual (× √52). Mide cuánto se mueve el precio.">volatilidad</span>, <span class="tip" tabindex="0" data-h="Beta" data-t="Sensibilidad de la acción al mercado (S&amp;P 500), calculada con 104 semanas. Beta 1,5: si el mercado sube 1%, la acción tiende a subir 1,5%.">beta</span></li><li><span class="tip" tabindex="0" data-h="Perfil de riesgo" data-t="Grupo de K-Means al que pertenece la semana actual de la acción: estable, volátil-sensible al mercado o explosivo-alcista. Describe el riesgo; no cambia el semáforo.">Perfil de riesgo</span> <span class="tip" tabindex="0" data-h="K-Means" data-t="Algoritmo de aprendizaje no supervisado que agrupa observaciones parecidas. Aquí agrupa semanas de cada acción según BSADF, momentum, volatilidad y beta.">K-Means</span></li></ul><span class="iltag mono"><span class="tip" tabindex="0" data-h="IL4" data-t="Nivel de madurez 4: el producto opera de forma estable y repetible.">IL4</span></span></div><div class="layer r5"><p class="ln mono">4</p><h4>Salidas</h4><ul><li>Excel del lunes: semáforo, variables, perfil y gráficos</li><li>Log de cada corrida</li></ul></div><div class="layer r6"><p class="ln mono">5</p><h4>Consumo</h4><ul><li>Reunión semanal del comité</li><li>Guía de interpretación</li><li>Hoja de registro de revisión</li></ul></div><div class="layer r7"><p class="ln mono">6</p><h4>Mantenimiento</h4><ul><li>Ejecución semanal en <span class="tip" tabindex="0" data-h="GitHub Actions" data-t="Servicio de GitHub que ejecuta el código en horario programado: cada lunes 02:00 UTC corre el radar sin intervención.">GitHub Actions</span>, ya probada</li><li><span class="tip" tabindex="0" data-h="Pruebas automáticas" data-t="20 tests que verifican el código cada vez que cambia (integración continua). Si uno falla, se detecta antes de publicar.">20 pruebas automáticas</span></li><li><span class="tip" tabindex="0" data-h="Alerta de deriva" data-t="Aviso si cambia mucho el volumen de datos descargados (±10%) o una serie se mueve más de 50% en una semana: puede ser un error de datos.">Alertas de deriva</span></li><li>No publica si &lt; 98% de datos válidos</li><li>Gobernanza y recalibración trimestral</li></ul></div><div class="layer r8 hl"><p class="ln mono">7</p><h4>KPIs</h4><ul><li>IL3 · calidad de datos</li><li>IL4 · operación</li><li><span class="tip" tabindex="0" data-h="IL5" data-t="Nivel de madurez 5: el producto genera valor medible en la decisión del negocio.">IL5</span> · valor para la decisión</li></ul><span class="iltag mono">IL5</span></div></div>
 <p class="src mono">Código en Python: ingesta.py → features.py y sadf.py → reporte.py, orquestado por main.py · Diagrama editable en docs/arquitectura.drawio</p>
-</section><section class="slide " data-n="4"><header class="mast mono"><span>Radar de Burbujas IA</span><span>03 · Operación del MVP</span><span>04 / 14</span></header>
+</section><section class="slide " data-n="4"><header class="mast mono"><span>Radar de Burbujas IA</span><span>03 · Operación del MVP</span><span>04 / 11</span></header>
 <h2 class="title r1">Un comando genera el reporte del lunes; en 2000, el rojo se habría encendido 11 semanas antes del peak</h2>
 <div class="mvp">
   <div class="mleft r2">
@@ -293,14 +293,14 @@ table{border-collapse:collapse;color:inherit;font-size:inherit;font-family:inher
 </svg><div class="ann" style="left:312px;top:24px;width:250px;text-align:right"><b style="color:#B3261E">Se enciende el rojo</b><br>24 dic 1999</div><div class="ann" style="left:613px;top:80px;width:230px"><b>Peak del <span class="tip" tabindex="0" data-h="Nasdaq Composite" data-t="Índice de las acciones de la bolsa Nasdaq, con mucho peso tecnológico. Se usa para probar el detector con la burbuja puntocom.">Nasdaq</span></b><br>10 mar 2000</div></div>
     <div class="legend mono"><span><i class="sw" style="background:#B3261E;opacity:.35"></i>Rojo: BSADF &gt; 0,69 (95%)</span><span><i class="sw" style="background:#C98A12;opacity:.35"></i>Amarillo: &gt; 0,36 (90%)</span><span>Arriba: precio, escala log. · Abajo: BSADF</span></div>
 <div class="strip r4">
-  <div><b class="mono">15/15</b><span>corridas sin error</span></div>
+  <div><b class="mono">18/18</b><span>corridas sin error</span></div>
   <div><b class="mono" style="color:#B3261E">11 sem.</b><span>antes del <span class="tip" tabindex="0" data-h="Peak" data-t="Máximo del precio antes de la caída. Ejemplo: Nasdaq, 10 de marzo de 2000.">peak</span> de 2000</span></div>
   <div><b class="mono">45 · 42</b><span>Nikkei y Bitcoin</span></div>
   <div><b class="mono">0</b><span><span class="tip" tabindex="0" data-h="Falsas alarmas" data-t="Rojos en caídas grandes que no fueron burbujas (crisis de crédito 2008, alza de tasas 2022). Un buen detector no debe encenderse ahí.">falsas alarmas</span> (2008, 2022)</span></div>
 </div>
   </div>
 </div>
-</section><section class="slide " data-n="5"><header class="mast mono"><span>Radar de Burbujas IA</span><span>04 · KPIs y madurez</span><span>05 / 14</span></header>
+</section><section class="slide " data-n="5"><header class="mast mono"><span>Radar de Burbujas IA</span><span>04 · KPIs y madurez</span><span>05 / 11</span></header>
 <h2 class="title r1">Cada nivel de madurez con su KPI, su meta y su propósito</h2>
 <div class="kpis">
   <div class="kcol r2">
@@ -313,9 +313,9 @@ table{border-collapse:collapse;color:inherit;font-size:inherit;font-family:inher
   <div class="kcol r3">
     <p class="exh">IL4 · Operación</p>
     <h4>¿Funciona sin intervención?</h4>
-    <div class="khead"><div class="kbig">15/15</div><p class="kcap">corridas sin error · meta 100%</p></div>
+    <div class="khead"><div class="kbig">18/18</div><p class="kcap">corridas sin error · meta 100%</p></div>
     <p class="kwhy"><b>Qué mide:</b> corridas que terminan bien sobre el total. <b>Para qué:</b> el comité necesita el reporte todas las semanas.</p>
-    <table class="kt"><tr><td><b class="kl">Duración máxima</b><small class="kd">segundos de la corrida más lenta</small></td><td class="r"><span class="kv">25 s</span><small>meta &lt; 5 min</small></td><td class="r"><span class="pill" data-k="medido" style="color:#3B6E4A;border-color:#3B6E4A">Medido</span></td></tr><tr><td><b class="kl">Duración promedio</b><small class="kd">segundos por corrida</small></td><td class="r"><span class="kv">9 s</span><small>meta &lt; 5 min</small></td><td class="r"><span class="pill" data-k="medido" style="color:#3B6E4A;border-color:#3B6E4A">Medido</span></td></tr><tr><td><b class="kl"><span class="tip" tabindex="0" data-h="Reporte a tiempo (SLA)" data-t="Porcentaje de semanas en que el reporte está listo antes del lunes 08:00, hora de Chile. Se mide con las corridas programadas.">Reporte a tiempo</span></b><small class="kd">listo antes del lunes 08:00</small></td><td class="r"><span class="kv">—</span><small>meta ≥ 95%</small></td><td class="r"><span class="pill" data-k="definido" style="color:#4C5F86;border-color:#4C5F86">Definido</span></td></tr><tr><td><b class="kl"><span class="tip" tabindex="0" data-h="Uso del reporte" data-t="Revisiones registradas por el comité en la hoja de registro del Excel. Mide si el producto realmente se usa.">Uso del reporte</span></b><small class="kd">revisiones del comité por semana</small></td><td class="r"><span class="kv">—</span><small>meta 1</small></td><td class="r"><span class="pill" data-k="definido" style="color:#4C5F86;border-color:#4C5F86">Definido</span></td></tr></table>
+    <table class="kt"><tr><td><b class="kl">Duración máxima</b><small class="kd">segundos de la corrida más lenta</small></td><td class="r"><span class="kv">25 s</span><small>meta &lt; 5 min</small></td><td class="r"><span class="pill" data-k="medido" style="color:#3B6E4A;border-color:#3B6E4A">Medido</span></td></tr><tr><td><b class="kl">Duración promedio</b><small class="kd">segundos por corrida</small></td><td class="r"><span class="kv">9 s</span><small>meta &lt; 5 min</small></td><td class="r"><span class="pill" data-k="medido" style="color:#3B6E4A;border-color:#3B6E4A">Medido</span></td></tr><tr><td><b class="kl"><span class="tip" tabindex="0" data-h="Reporte a tiempo (SLA)" data-t="Porcentaje de semanas en que el reporte está listo antes del lunes 08:00, hora de Chile. Se mide con las corridas programadas.">Reporte a tiempo</span></b><small class="kd">listo antes del lunes 08:00</small></td><td class="r"><span class="kv">desde 9 nov</span><small>meta ≥ 95%</small></td><td class="r"><span class="pill" data-k="definido" style="color:#4C5F86;border-color:#4C5F86">Definido</span></td></tr><tr><td><b class="kl"><span class="tip" tabindex="0" data-h="Uso del reporte" data-t="Revisiones registradas por el comité en la hoja de registro del Excel. Mide si el producto realmente se usa.">Uso del reporte</span></b><small class="kd">revisiones del comité por semana</small></td><td class="r"><span class="kv">—</span><small>meta 1</small></td><td class="r"><span class="pill" data-k="definido" style="color:#4C5F86;border-color:#4C5F86">Definido</span></td></tr></table>
   </div>
   <div class="kcol r4">
     <p class="exh">IL5 · Valor para la decisión</p>
@@ -325,27 +325,21 @@ table{border-collapse:collapse;color:inherit;font-size:inherit;font-family:inher
     <table class="kt"><tr><td><b class="kl"><span class="tip" tabindex="0" data-h="Falsas alarmas" data-t="Rojos en caídas grandes que no fueron burbujas (crisis de crédito 2008, alza de tasas 2022). Un buen detector no debe encenderse ahí.">Falsas alarmas</span></b><small class="kd">rojos en las caídas de 2008 y 2022</small></td><td class="r"><span class="kv">0</span><small>meta 0</small></td><td class="r"><span class="pill" data-k="medido" style="color:#3B6E4A;border-color:#3B6E4A">Medido*</span></td></tr><tr><td><b class="kl"><span class="tip" tabindex="0" data-h="Episodios rojos por año" data-t="Veces por año que alguna de las 9 acciones entra en rojo. Indica cuántas decisiones tendría que discutir el comité: pocas significa que la alerta no es ruido.">Episodios rojos por año</span></b><small class="kd">decisiones que el comité discutiría</small></td><td class="r"><span class="kv">1,1</span></td><td class="r"><span class="pill" data-k="medido" style="color:#3B6E4A;border-color:#3B6E4A">Medido*</span></td></tr><tr><td><b class="kl"><span class="tip" tabindex="0" data-h="Pérdida evitada" data-t="Puntos de caída evitados al seguir la regla v2, multiplicados por la exposición supuesta (US$100 M). Es una aproximación.">Pérdida evitada 2000</span></b><small class="kd">caída evitada × US$100 M</small></td><td class="r"><span class="kv">US$12,6 M</span></td><td class="r"><span class="pill" data-k="proyectado" style="color:#C98A12;border-color:#C98A12">Proyectado</span></td></tr><tr><td><b class="kl"><span class="tip" tabindex="0" data-h="Percentil placebo" data-t="Porcentaje de 1.000 reglas que reducen exposición en fechas al azar y que habrían caído menos que la regla real. Bajo es bueno: menor a 20 significa que la señal aporta.">Regla supera al azar</span></b><small class="kd">percentil placebo &lt; 20</small></td><td class="r"><span class="kv">2 de 3</span><small>meta mayoría</small></td><td class="r"><span class="pill" data-k="medido" style="color:#3B6E4A;border-color:#3B6E4A">Medido*</span></td></tr></table>
   </div>
 </div>
-<p class="src">* En backtest histórico. US$100 M expuestos es un supuesto; la caída en 2000 baja de −77% a −65% siguiendo la alerta. Fuera de muestra la regla no está validada (1 de 2 episodios).</p>
-</section><section class="slide dark" data-n="6"><header class="mast mono"><span>Radar de Burbujas IA</span><span>Conclusiones</span><span>06 / 14</span></header>
-<h2 class="title big r1">El detector avisa antes. La regla para protegerse todavía necesita más evidencia.</h2>
+<p class="src">* En backtest histórico. US$100 M expuestos es un supuesto; la caída en 2000 baja de −77% a −65% siguiendo la alerta. Fuera de muestra, la regla supera al azar en 1 de 2 episodios.</p>
+</section><section class="slide dark" data-n="6"><header class="mast mono"><span>Radar de Burbujas IA</span><span>Conclusiones</span><span>06 / 11</span></header>
+<h2 class="title big r1">El radar avisa antes de la caída y funciona solo cada semana</h2>
 <div class="concl">
-  <div class="r2"><p class="exh mono" style="color:#3B6E4A">Lo que funciona</p><p class="body">Anticipó las 3 burbujas evaluadas (11, 45 y 42 semanas) y no dio <span class="tip" tabindex="0" data-h="Falsas alarmas" data-t="Rojos en caídas grandes que no fueron burbujas (crisis de crédito 2008, alza de tasas 2022). Un buen detector no debe encenderse ahí.">falsas alarmas</span> en 2008 ni 2022. El producto corre con un comando, valida sus datos y mide sus KPIs en cada ejecución.</p></div>
-  <div class="r3"><p class="exh mono" style="color:#C98A12">Lo que falta probar</p><p class="body">Reducir al 50% con el rojo supera al azar en el <span class="tip" tabindex="0" data-h="Nasdaq Composite" data-t="Índice de las acciones de la bolsa Nasdaq, con mucho peso tecnológico. Se usa para probar el detector con la burbuja puntocom.">Nasdaq</span> y en Bitcoin, pero no en el Nikkei. El horario de entrega y el uso real no tienen datos todavía.</p></div>
-  <div class="r4"><p class="exh mono">Siguiente paso</p><p class="body">Activar la ejecución semanal, hacer un piloto de 3 meses con un comité para medir uso y horario, y sumar mercados para validar la regla.</p></div>
+  <div class="r2"><p class="exh mono" style="color:#3B6E4A">Resultado</p><p class="body">Anticipó las 3 burbujas evaluadas: 11, 45 y 42 semanas antes del <span class="tip" tabindex="0" data-h="Peak" data-t="Máximo del precio antes de la caída. Ejemplo: Nasdaq, 10 de marzo de 2000.">peak</span>. No dio <span class="tip" tabindex="0" data-h="Falsas alarmas" data-t="Rojos en caídas grandes que no fueron burbujas (crisis de crédito 2008, alza de tasas 2022). Un buen detector no debe encenderse ahí.">falsas alarmas</span> en las caídas de 2008 y 2022.</p></div>
+  <div class="r3"><p class="exh mono" style="color:#8FB3DE">Producto</p><p class="body">Corre cada lunes en <span class="tip" tabindex="0" data-h="GitHub Actions" data-t="Servicio de GitHub que ejecuta el código en horario programado: cada lunes 02:00 UTC corre el radar sin intervención.">GitHub Actions</span>, valida sus datos y mide sus KPIs en cada corrida: 18 de 18 corridas sin error y <span class="tip" tabindex="0" data-h="Pruebas automáticas" data-t="20 tests que verifican el código cada vez que cambia (integración continua). Si uno falla, se detecta antes de publicar.">20 pruebas automáticas</span>.</p></div>
+  <div class="r4"><p class="exh mono" style="color:#C98A12">Uso para el comité</p><p class="body">El rojo es una alerta para revisar la exposición, no una orden de venta. Reducir al 50% supera al azar en 2 de 3 episodios; la decisión final queda en el comité.</p></div>
 </div>
-</section><section class="slide " data-n="7"><header class="mast mono"><span>Radar de Burbujas IA</span><span>Anexos</span><span>07 / 14</span></header>
-<div class="annexidx">
-  <h2 class="title r1">Anexos</h2>
-  <ol class="aix mono r2">
-    <li><span>A</span>Universo: por qué estas 9 acciones</li>
-    <li><span>B</span>Metodología del test <span class="tip" tabindex="0" data-h="BSADF" data-t="Estadístico de Phillips, Shi y Yu (2015). Para cada semana corre la prueba ADF desde distintos puntos de partida de los últimos 5 años y guarda el valor más alto. Si supera el umbral, el precio está creciendo de forma explosiva.">BSADF</span></li>
-    <li><span>C</span>Regla de protección y prueba contra el azar</li>
-    <li><span>D</span>Validación <span class="tip" tabindex="0" data-h="Fuera de muestra" data-t="Datos que no se usaron para diseñar ni ajustar el modelo. Si funciona ahí, es menos probable que el resultado sea casualidad.">fuera de muestra</span>: Bitcoin y Nikkei</li>
-    <li><span>E</span>Historia del semáforo, 2000–2026</li>
-    <li><span>F</span>Perfiles de riesgo con <span class="tip" tabindex="0" data-h="K-Means" data-t="Algoritmo de aprendizaje no supervisado que agrupa observaciones parecidas. Aquí agrupa semanas de cada acción según BSADF, momentum, volatilidad y beta.">K-Means</span></li>
-  </ol>
+</section><section class="slide dark" data-n="7"><header class="mast mono"><span>Radar de Burbujas IA</span><span>Preguntas</span><span>07 / 11</span></header>
+<div class="closing">
+  <p class="kick mono r1">Gracias</p>
+  <h2 class="title big r2">¿Preguntas?</h2>
+  <p class="dek r3">Anexos de respaldo: A. Universo · B. Metodología del <span class="tip" tabindex="0" data-h="BSADF" data-t="Estadístico de Phillips, Shi y Yu (2015). Para cada semana corre la prueba ADF desde distintos puntos de partida de los últimos 5 años y guarda el valor más alto. Si supera el umbral, el precio está creciendo de forma explosiva.">BSADF</span> · C. Regla de protección · D. Perfiles <span class="tip" tabindex="0" data-h="K-Means" data-t="Algoritmo de aprendizaje no supervisado que agrupa observaciones parecidas. Aquí agrupa semanas de cada acción según BSADF, momentum, volatilidad y beta.">K-Means</span></p>
 </div>
-</section><section class="slide " data-n="8"><header class="mast mono"><span>Radar de Burbujas IA</span><span>Anexo A · Universo</span><span>08 / 14</span></header>
+</section><section class="slide " data-n="8"><header class="mast mono"><span>Radar de Burbujas IA</span><span>Anexo A · Universo</span><span>08 / 11</span></header>
 <h2 class="title r1">Nueve acciones que cubren la cadena de valor de la IA: chips, nube y plataformas</h2>
 <div class="univ r2"><div class="ugrp"><p class="exh mono">Chips</p><div class="urow"><span class="mono tk">NVDA</span><span class="un">NVIDIA</span><span class="ud">GPUs para entrenar modelos</span></div><div class="urow"><span class="mono tk">AMD</span><span class="un">Advanced Micro Devices</span><span class="ud">GPUs y CPUs para centros de datos</span></div><div class="urow"><span class="mono tk">AVGO</span><span class="un">Broadcom</span><span class="ud">Chips de red y aceleradores a medida</span></div><div class="urow"><span class="mono tk">TSM</span><span class="un">Taiwan Semiconductor</span><span class="ud">Fabrica los chips de IA</span></div></div><div class="ugrp"><p class="exh mono">Nube e infraestructura</p><div class="urow"><span class="mono tk">MSFT</span><span class="un">Microsoft</span><span class="ud">Azure y alianza con OpenAI</span></div><div class="urow"><span class="mono tk">GOOGL</span><span class="un">Alphabet</span><span class="ud">Google Cloud y modelos Gemini</span></div><div class="urow"><span class="mono tk">AMZN</span><span class="un">Amazon</span><span class="ud">AWS</span></div><div class="urow"><span class="mono tk">ORCL</span><span class="un">Oracle</span><span class="ud">Centros de datos para IA</span></div></div><div class="ugrp"><p class="exh mono">Plataformas</p><div class="urow"><span class="mono tk">META</span><span class="un">Meta Platforms</span><span class="ud">Modelos Llama e inversión en IA</span></div></div></div>
 <div class="uside r3">
@@ -353,10 +347,10 @@ table{border-collapse:collapse;color:inherit;font-size:inherit;font-family:inher
   <p class="body">Selección por juicio: las mayores empresas listadas en EE.UU. cuyo negocio depende directamente de la demanda de IA. No proviene de un índice oficial.</p>
   <p class="exh mono" style="margin-top:36px">Referencias</p>
   <p class="body"><span class="tip" tabindex="0" data-h="Nasdaq Composite" data-t="Índice de las acciones de la bolsa Nasdaq, con mucho peso tecnológico. Se usa para probar el detector con la burbuja puntocom.">Nasdaq</span> Composite (^IXIC) para validar con la puntocom; <span class="tip" tabindex="0" data-h="S&amp;P 500" data-t="Índice de las 500 mayores empresas de EE.UU. Se usa como mercado para calcular el beta.">S&amp;P 500</span> (^GSPC) como mercado para el <span class="tip" tabindex="0" data-h="Beta" data-t="Sensibilidad de la acción al mercado (S&amp;P 500), calculada con 104 semanas. Beta 1,5: si el mercado sube 1%, la acción tiende a subir 1,5%.">beta</span>.</p>
-  <p class="exh mono" style="margin-top:36px">Mejora pendiente</p>
-  <p class="body">Usar la cartera de un ETF temático de IA como regla objetiva de inclusión.</p>
+  <p class="exh mono" style="margin-top:36px">Flexibilidad</p>
+  <p class="body">El universo se define en un solo parámetro (config.py): se puede ampliar o reemplazar por la cartera de un ETF temático sin cambiar el resto del producto.</p>
 </div>
-</section><section class="slide " data-n="9"><header class="mast mono"><span>Radar de Burbujas IA</span><span>Anexo B · Metodología</span><span>09 / 14</span></header>
+</section><section class="slide " data-n="9"><header class="mast mono"><span>Radar de Burbujas IA</span><span>Anexo B · Metodología</span><span>09 / 11</span></header>
 <h2 class="title r1">El test pregunta cada semana si el precio crece más rápido que un paseo aleatorio</h2>
 <div class="meth">
   <div class="mstep r2"><p class="ln mono">1</p><h4><span class="tip" tabindex="0" data-h="ADF" data-t="Prueba de Dickey-Fuller aumentada: estima si una serie se comporta como paseo aleatorio (β = 0) o si se alimenta de sí misma (β &gt; 0, explosiva).">Regresión ADF</span></h4><p class="eq mono">Δy<sub>t</sub> = α + β·y<sub>t−1</sub> + γ·Δy<sub>t−1</sub> + ε<sub>t</sub></p><p class="body s">y = log del precio semanal. Si β &gt; 0, el precio se alimenta de sí mismo: crecimiento explosivo.</p></div>
@@ -365,8 +359,8 @@ table{border-collapse:collapse;color:inherit;font-size:inherit;font-family:inher
   <div class="mstep r5"><p class="ln mono">4</p><h4><span class="tip" tabindex="0" data-h="Persistencia" data-t="El color cambia solo si la señal se mantiene 6 semanas seguidas en la nueva zona. Evita que una semana aislada encienda o apague la alerta.">Persistencia</span></h4><p class="body s">El color cambia solo si se mantiene 6 semanas seguidas, al subir y al bajar. Evita encender y apagar la alerta por una semana aislada.</p><p class="body s muted">Regla de duración mínima: log(260) ≈ 5,6</p></div>
 </div>
 <p class="src mono">Implementación propia en src/sadf.py, verificada contra statsmodels. Variables de contexto: momentum 52 semanas, volatilidad anualizada y beta de 104 semanas contra el S&amp;P 500.</p>
-</section><section class="slide " data-n="10"><header class="mast mono"><span>Radar de Burbujas IA</span><span>Anexo C · Regla de protección</span><span>10 / 14</span></header>
-<h2 class="title r1">Reducir al 50% con el rojo protege, pero aún no se distingue del azar en todos los mercados</h2>
+</section><section class="slide " data-n="10"><header class="mast mono"><span>Radar de Burbujas IA</span><span>Anexo C · Regla de protección</span><span>10 / 11</span></header>
+<h2 class="title r1">Reducir al 50% con el rojo protege más que el azar en 2 de 3 episodios</h2>
 <div class="rule r2">
   <p class="body"><b><span class="tip" tabindex="0" data-h="Regla v2" data-t="Con rojo, la exposición baja a 50%. Al salir del rojo se mantiene en 50% durante 52 semanas y luego vuelve a 100%.">Regla v2</span>:</b> con rojo la exposición baja a 50%. Al salir del rojo se mantiene 52 semanas más y luego vuelve a 100%. La señal de la semana t se ejecuta en t+1. Caja al 0%.</p>
 </div>
@@ -379,263 +373,12 @@ table{border-collapse:collapse;color:inherit;font-size:inherit;font-family:inher
 </table>
 <div class="g2 r4">
   <div><p class="exh mono">Cómo leer el percentil placebo</p><p class="body s">Se generan 1.000 reglas que reducen exposición en fechas al azar, con los mismos episodios y duraciones. El percentil es el % de esas reglas que cae menos. Bajo es bueno; el criterio, fijado antes de mirar, es menor a 20.</p></div>
-  <div><p class="exh mono">Conclusión</p><p class="body s">Cumple en 2 de 3 episodios, pero fuera de muestra solo en 1 de 2. Por eso el impacto en US$ se presenta como proyectado, no validado.</p></div>
+  <div><p class="exh mono">Conclusión</p><p class="body s">Cumple el criterio en el Nasdaq y en Bitcoin, no en el Nikkei. Por eso el rojo se entrega como alerta y la reducción la decide el comité; el impacto en US$ se presenta como proyectado.</p></div>
 </div>
-</section><section class="slide " data-n="11"><header class="mast mono"><span>Radar de Burbujas IA</span><span>Anexo D · Fuera de muestra</span><span>11 / 14</span></header>
-<h2 class="title r1">Con los mismos parámetros, el rojo se encendió antes del peak en mercados que el modelo nunca vio</h2>
-<div class="oos">
-  <div class="r2"><p class="exh mono">Figura 3 · Bitcoin, 2019–2023</p><svg viewBox="0 0 780 470" width="780" height="470" role="img" aria-label="Bitcoin (US$), escala log.">
-<rect x="347.6" y="16" width="7.0" height="414" fill="#C98A12" opacity="0.13"/>
-<rect x="354.6" y="16" width="73.6" height="414" fill="#B3261E" opacity="0.16"/>
-<rect x="428.2" y="16" width="3.5" height="414" fill="#C98A12" opacity="0.13"/>
-<line x1="104" x2="756" y1="190.3" y2="190.3" stroke="#D2D4CD" stroke-width="1"/>
-<text x="94" y="197.3" text-anchor="end" class="ax" font-size="20">10.000</text>
-<line x1="104" x2="756" y1="130.1" y2="130.1" stroke="#D2D4CD" stroke-width="1"/>
-<text x="94" y="137.1" text-anchor="end" class="ax" font-size="20">20.000</text>
-<line x1="104" x2="756" y1="69.8" y2="69.8" stroke="#D2D4CD" stroke-width="1"/>
-<text x="94" y="76.8" text-anchor="end" class="ax" font-size="20">40.000</text>
-<line x1="104" x2="756" y1="34.6" y2="34.6" stroke="#D2D4CD" stroke-width="1"/>
-<text x="94" y="41.6" text-anchor="end" class="ax" font-size="20">60.000</text>
-<polyline points="104.0,187.3 107.5,187.2 111.0,188.7 114.5,207.0 118.0,207.5 121.5,206.3 125.0,210.0 128.5,202.8 132.0,197.0 135.5,201.4 139.1,204.5 142.6,217.7 146.1,212.3 149.6,214.8 153.1,218.0 156.6,218.6 160.1,217.8 163.6,217.1 167.1,207.9 170.6,200.1 174.1,205.0 177.6,196.1 181.1,192.1 184.6,187.6 188.1,193.1 191.6,202.7 195.1,198.3 198.6,241.3 202.2,231.9 205.7,228.1 209.2,224.7 212.7,223.0 216.2,220.1 219.7,214.7 223.2,200.8 226.7,191.7 230.2,196.3 233.7,197.7 237.2,195.3 240.7,193.2 244.2,194.9 247.7,196.7 251.2,197.9 254.7,198.6 258.2,196.8 261.7,198.0 265.2,194.4 268.8,179.5 272.3,177.4 275.8,176.1 279.3,177.4 282.8,177.8 286.3,186.0 289.8,186.9 293.3,182.4 296.8,184.5 300.3,185.4 303.8,181.5 307.3,179.5 310.8,167.9 314.3,163.9 317.8,151.8 321.3,147.7 324.8,136.3 328.3,143.6 331.8,135.9 335.4,138.9 338.9,117.4 342.4,111.8 345.9,96.6 349.4,68.1 352.9,77.0 356.4,86.5 359.9,83.1 363.4,73.9 366.9,54.9 370.4,40.7 373.9,57.0 377.4,52.3 380.9,38.5 384.4,37.0 387.9,41.9 391.4,35.5 394.9,37.2 398.5,32.3 402.0,48.5 405.5,37.9 409.0,38.5 412.5,50.6 416.0,75.9 419.5,79.7 423.0,76.8 426.5,75.8 430.0,79.5 433.5,90.2 437.0,84.2 440.5,84.5 444.0,90.8 447.5,85.0 451.0,65.1 454.5,63.9 458.0,54.3 461.5,51.6 465.1,52.1 468.6,50.4 472.1,59.8 475.6,55.3 479.1,63.8 482.6,53.8 486.1,43.8 489.6,32.3 493.1,33.6 496.6,31.4 500.1,33.0 503.6,28.7 507.1,37.3 510.6,44.4 514.1,44.4 517.6,55.3 521.1,57.3 524.6,49.0 528.2,57.1 531.7,66.5 535.2,63.3 538.7,77.9 542.2,74.8 545.7,66.6 549.2,64.7 552.7,69.7 556.2,71.5 559.7,71.7 563.2,72.5 566.7,66.0 570.2,60.8 573.7,57.1 577.2,65.0 580.7,68.6 584.2,70.4 587.7,72.9 591.2,78.9 594.8,96.9 598.3,97.2 601.8,98.9 605.3,95.7 608.8,97.5 612.3,128.0 615.8,124.9 619.3,133.3 622.8,122.8 626.3,126.5 629.8,119.0 633.3,114.9 636.8,116.8 640.3,112.8 643.8,126.3 647.3,128.9 650.8,130.2 654.3,124.2 657.8,131.0 661.4,133.2 664.9,132.6 668.4,132.0 671.9,133.7 675.4,133.7 678.9,127.5 682.4,125.2 685.9,144.0 689.4,145.7 692.9,146.7 696.4,143.7 699.9,143.5 703.4,146.0 706.9,145.2 710.4,146.2 713.9,144.4 717.4,130.4 720.9,119.1 724.5,117.6 728.0,116.2 731.5,123.2 735.0,112.2 738.5,117.2 742.0,120.3 745.5,129.2 749.0,102.6 752.5,102.4 756.0,99.3" fill="none" stroke="#16191D" stroke-width="2.6" stroke-linejoin="round"/>
-<line x1="104" x2="756" y1="379.8" y2="379.8" stroke="#C98A12" stroke-width="2" stroke-dasharray="7 6"/>
-<text x="756" y="401.8" text-anchor="end" class="ax" font-size="17" fill="#C98A12">0,36 · 90%</text>
-<line x1="104" x2="756" y1="370.7" y2="370.7" stroke="#B3261E" stroke-width="2" stroke-dasharray="7 6"/>
-<text x="756" y="362.7" text-anchor="end" class="ax" font-size="17" fill="#B3261E">0,69 · 95%</text>
-<line x1="104" x2="756" y1="389.5" y2="389.5" stroke="#D2D4CD"/>
-<text x="94" y="396.5" text-anchor="end" class="ax" font-size="20">0</text>
-<polyline points="104.0,395.9 107.5,397.4 111.0,398.1 114.5,402.9 118.0,402.7 121.5,402.7 125.0,403.7 128.5,402.2 132.0,402.8 135.5,404.2 139.1,405.4 142.6,409.8 146.1,409.8 149.6,410.6 153.1,412.6 156.6,414.6 160.1,416.2 163.6,416.3 167.1,415.1 170.6,414.0 174.1,415.9 177.6,412.8 181.1,412.2 184.6,411.0 188.1,413.7 191.6,417.4 195.1,415.5 198.6,420.8 202.2,420.6 205.7,421.2 209.2,421.5 212.7,421.8 216.2,422.0 219.7,421.9 223.2,420.7 226.7,419.3 230.2,420.9 233.7,421.4 237.2,420.9 240.7,420.5 244.2,421.2 247.7,421.8 251.2,422.3 254.7,422.6 258.2,422.4 261.7,422.9 265.2,422.1 268.8,418.1 272.3,417.9 275.8,417.5 279.3,418.2 282.8,418.5 286.3,421.8 289.8,422.0 293.3,420.7 296.8,421.6 300.3,422.0 303.8,420.9 307.3,420.4 310.8,414.8 314.3,411.6 317.8,400.9 321.3,397.2 324.8,360.8 328.3,379.9 331.8,362.8 335.4,374.4 338.9,340.4 342.4,335.9 345.9,315.7 349.4,289.4 352.9,318.0 356.4,366.1 359.9,366.2 363.4,360.0 366.9,345.0 370.4,335.5 373.9,357.1 377.4,356.2 380.9,346.9 384.4,348.1 387.9,356.1 391.4,353.1 394.9,356.7 398.5,355.1 402.0,369.8 405.5,363.8 409.0,365.1 412.5,375.0 416.0,392.7 419.5,394.5 423.0,393.4 426.5,393.4 430.0,395.2 433.5,399.8 437.0,397.3 440.5,397.7 444.0,400.3 447.5,398.1 451.0,391.5 454.5,391.9 458.0,388.2 461.5,387.7 465.1,388.4 468.6,388.0 472.1,392.5 475.6,390.5 479.1,394.3 482.6,390.2 486.1,386.9 489.6,383.0 493.1,384.3 496.6,383.7 500.1,384.9 503.6,383.3 507.1,387.7 510.6,390.9 514.1,390.9 517.6,395.4 521.1,396.0 524.6,393.3 528.2,396.5 531.7,399.8 535.2,398.6 538.7,403.1 542.2,402.0 545.7,400.1 549.2,399.9 552.7,401.5 556.2,402.0 559.7,402.2 563.2,402.5 566.7,400.9 570.2,399.8 573.7,399.0 577.2,401.5 580.7,402.6 584.2,403.1 587.7,403.8 591.2,405.4 594.8,398.7 598.3,400.8 601.8,398.8 605.3,404.3 608.8,402.0 612.3,370.5 615.8,376.5 619.3,367.3 622.8,384.8 626.3,383.0 629.8,392.6 633.3,398.4 636.8,397.8 640.3,401.5 643.8,391.7 647.3,390.3 650.8,390.2 654.3,396.3 657.8,391.6 661.4,390.6 664.9,392.0 668.4,393.3 671.9,393.0 675.4,393.7 678.9,399.0 682.4,401.4 685.9,390.4 689.4,389.7 692.9,389.9 696.4,393.1 699.9,394.1 703.4,393.1 706.9,394.3 710.4,394.4 713.9,396.0 717.4,405.0 720.9,411.1 724.5,411.6 728.0,412.2 731.5,410.3 735.0,413.4 738.5,412.0 742.0,411.4 745.5,409.0 749.0,414.8 752.5,411.9 756.0,406.5" fill="none" stroke="#16191D" stroke-width="2" stroke-linejoin="round"/>
-<text x="94" y="276" text-anchor="end" class="ax" font-size="16">BSADF</text>
-<line x1="163.6" x2="163.6" y1="430" y2="438" stroke="#646A70"/>
-<text x="163.6" y="462" text-anchor="middle" class="ax" font-size="20">2020</text>
-<line x1="345.9" x2="345.9" y1="430" y2="438" stroke="#646A70"/>
-<text x="345.9" y="462" text-anchor="middle" class="ax" font-size="20">2021</text>
-<line x1="531.7" x2="531.7" y1="430" y2="438" stroke="#646A70"/>
-<text x="531.7" y="462" text-anchor="middle" class="ax" font-size="20">2022</text>
-<line x1="713.9" x2="713.9" y1="430" y2="438" stroke="#646A70"/>
-<text x="713.9" y="462" text-anchor="middle" class="ax" font-size="20">2023</text>
-<line x1="503.6" x2="503.6" y1="16" y2="430" stroke="#16191D" stroke-width="1.6"/>
-<circle cx="503.6" cy="28.7" r="6" fill="#16191D"/>
-<line x1="356.4" x2="356.4" y1="16" y2="430" stroke="#B3261E" stroke-width="2"/>
-<circle cx="356.4" cy="86.5" r="6" fill="#B3261E"/>
-</svg><p class="kcap"><b class="mono" style="color:#B3261E">42 semanas</b> de anticipación · rojo 22 ene 2021, peak 12 nov 2021</p></div>
-  <div class="r3"><p class="exh mono">Figura 4 · Nikkei 225, 1985–1992</p><svg viewBox="0 0 780 470" width="780" height="470" role="img" aria-label="Nikkei 225, escala log.">
-<rect x="112.7" y="16" width="45.7" height="414" fill="#C98A12" opacity="0.13"/>
-<rect x="204.0" y="16" width="1.6" height="414" fill="#C98A12" opacity="0.13"/>
-<rect x="205.6" y="16" width="50.4" height="414" fill="#B3261E" opacity="0.16"/>
-<rect x="256.0" y="16" width="9.4" height="414" fill="#C98A12" opacity="0.13"/>
-<rect x="265.4" y="16" width="72.4" height="414" fill="#B3261E" opacity="0.16"/>
-<rect x="438.7" y="16" width="26.8" height="414" fill="#B3261E" opacity="0.16"/>
-<rect x="465.4" y="16" width="4.7" height="414" fill="#C98A12" opacity="0.13"/>
-<rect x="511.1" y="16" width="9.4" height="414" fill="#C98A12" opacity="0.13"/>
-<rect x="574.1" y="16" width="9.4" height="414" fill="#C98A12" opacity="0.13"/>
-<rect x="720.6" y="16" width="15.7" height="414" fill="#C98A12" opacity="0.13"/>
-<line x1="104" x2="756" y1="195.6" y2="195.6" stroke="#D2D4CD" stroke-width="1"/>
-<text x="94" y="202.6" text-anchor="end" class="ax" font-size="20">15.000</text>
-<line x1="104" x2="756" y1="145.3" y2="145.3" stroke="#D2D4CD" stroke-width="1"/>
-<text x="94" y="152.3" text-anchor="end" class="ax" font-size="20">20.000</text>
-<line x1="104" x2="756" y1="74.3" y2="74.3" stroke="#D2D4CD" stroke-width="1"/>
-<text x="94" y="81.3" text-anchor="end" class="ax" font-size="20">30.000</text>
-<line x1="104" x2="756" y1="23.9" y2="23.9" stroke="#D2D4CD" stroke-width="1"/>
-<text x="94" y="30.9" text-anchor="end" class="ax" font-size="20">40.000</text>
-<polyline points="104.0,241.3 105.6,237.4 107.1,236.0 108.7,237.8 110.3,235.5 111.9,234.6 113.4,232.5 115.0,232.5 116.6,228.8 118.2,229.7 119.7,228.0 121.3,226.9 122.9,226.4 124.5,226.9 126.0,226.3 127.6,233.0 129.2,228.9 130.8,228.2 132.3,227.2 133.9,228.7 135.5,226.2 137.1,224.0 138.6,224.5 140.2,225.0 141.8,225.7 143.4,222.3 144.9,221.2 146.5,222.8 148.1,223.5 149.7,225.5 151.2,227.2 152.8,228.9 154.4,226.4 156.0,224.9 157.5,224.6 159.1,228.2 160.7,226.3 162.3,225.2 163.8,225.6 165.4,224.6 167.0,221.3 168.6,221.0 170.1,222.6 171.7,223.3 173.3,222.7 174.9,225.6 176.4,223.9 178.0,223.9 179.6,223.5 181.2,219.2 182.7,220.5 184.3,219.6 185.9,220.7 187.5,220.5 189.0,222.0 190.6,220.3 192.2,217.8 193.8,216.1 195.3,215.4 196.9,212.2 198.5,207.8 200.1,201.4 201.6,195.5 203.2,191.4 204.8,195.4 206.4,191.9 207.9,187.0 209.5,187.8 211.1,185.8 212.7,182.2 214.2,187.2 215.8,182.1 217.4,177.1 219.0,175.6 220.5,171.6 222.1,169.6 223.7,168.6 225.3,167.7 226.8,166.9 228.4,165.3 230.0,163.2 231.6,170.4 233.1,169.3 234.7,160.1 236.3,159.5 237.9,158.6 239.4,156.3 241.0,162.7 242.6,168.4 244.2,164.1 245.7,171.3 247.3,167.1 248.9,176.8 250.5,181.2 252.0,174.6 253.6,174.0 255.2,169.7 256.8,168.7 258.3,162.9 259.9,157.6 261.5,155.8 263.1,154.9 264.6,155.9 266.2,156.0 267.8,152.9 269.4,150.1 270.9,144.8 272.5,148.2 274.1,148.5 275.7,144.6 277.2,141.6 278.8,135.8 280.4,132.6 282.0,131.3 283.5,128.4 285.1,125.3 286.7,119.2 288.3,113.8 289.8,113.3 291.4,115.7 293.0,109.1 294.6,108.1 296.1,112.2 297.7,107.8 299.3,104.3 300.9,100.1 302.4,104.2 304.0,105.9 305.6,110.0 307.2,112.6 308.7,113.5 310.3,113.8 311.9,109.8 313.5,107.6 315.0,102.8 316.6,102.3 318.2,99.5 319.8,101.1 321.3,107.4 322.9,107.3 324.5,105.5 326.1,100.3 327.6,97.1 329.2,96.9 330.8,119.3 332.4,122.6 333.9,122.4 335.5,125.1 337.1,123.1 338.7,118.8 340.2,123.9 341.8,120.5 343.4,122.1 345.0,127.6 346.5,132.1 348.1,121.8 349.7,123.8 351.3,121.7 352.8,116.1 354.4,115.9 356.0,113.5 357.6,107.8 359.1,105.1 360.7,102.0 362.3,102.4 363.9,99.6 365.4,101.9 367.0,98.6 368.6,94.4 370.2,93.4 371.7,93.8 373.3,89.9 374.9,89.3 376.5,89.7 378.0,90.2 379.6,90.9 381.2,87.5 382.8,86.9 384.3,84.2 385.9,87.9 387.5,89.5 389.1,86.9 390.6,86.9 392.2,90.9 393.8,86.9 395.4,83.7 396.9,87.4 398.5,85.1 400.1,89.1 401.7,92.0 403.2,88.6 404.8,87.2 406.4,90.0 408.0,86.9 409.5,91.1 411.1,90.8 412.7,90.2 414.3,88.0 415.8,86.7 417.4,83.3 419.0,79.1 420.6,77.8 422.1,77.0 423.7,75.5 425.3,77.0 426.9,76.1 428.4,73.4 430.0,73.1 431.6,66.9 433.1,67.6 434.7,64.9 436.3,64.7 437.9,62.3 439.4,62.1 441.0,60.5 442.6,63.0 444.2,64.6 445.7,62.9 447.3,65.4 448.9,58.5 450.5,56.6 452.0,56.8 453.6,57.5 455.2,53.9 456.8,52.6 458.3,53.1 459.9,52.4 461.5,51.4 463.1,54.1 464.6,54.3 466.2,57.3 467.8,54.8 469.4,57.9 470.9,53.9 472.5,54.6 474.1,52.9 475.7,48.8 477.2,48.6 478.8,48.8 480.4,47.0 482.0,48.6 483.5,50.6 485.1,51.8 486.7,50.3 488.3,48.5 489.8,44.2 491.4,46.3 493.0,46.7 494.6,44.9 496.1,44.7 497.7,44.9 499.3,44.0 500.9,42.6 502.4,40.0 504.0,37.0 505.6,34.2 507.2,31.7 508.7,32.7 510.3,28.7 511.9,31.7 513.5,35.2 515.0,38.4 516.6,38.2 518.2,34.5 519.8,36.2 521.3,35.4 522.9,47.9 524.5,52.1 526.1,52.4 527.6,59.7 529.2,72.1 530.8,74.4 532.4,78.6 533.9,78.9 535.5,75.3 537.1,76.7 538.7,73.3 540.2,65.7 541.8,62.9 543.4,58.7 545.0,58.2 546.5,57.6 548.1,60.1 549.7,64.7 551.3,63.3 552.8,60.6 554.4,59.5 556.0,60.7 557.6,69.3 559.1,77.1 560.7,90.6 562.3,94.1 563.9,112.1 565.4,99.5 567.0,113.6 568.6,106.9 570.2,115.0 571.7,136.9 573.3,122.1 574.9,125.5 576.5,109.9 578.0,106.2 579.6,111.9 581.2,121.3 582.8,119.5 584.3,117.8 585.9,125.0 587.5,116.9 589.1,110.8 590.6,112.5 592.2,114.5 593.8,112.9 595.4,119.0 596.9,114.8 598.5,116.5 600.1,119.6 601.7,111.2 603.2,103.8 604.8,100.0 606.4,100.1 608.0,95.3 609.5,93.8 611.1,95.3 612.7,97.4 614.3,94.3 615.8,95.5 617.4,95.7 619.0,98.5 620.6,96.2 622.1,97.5 623.7,101.4 625.3,102.5 626.9,100.8 628.4,106.0 630.0,105.6 631.6,111.4 633.2,118.6 634.7,121.6 636.3,119.8 637.9,121.8 639.5,116.9 641.0,113.2 642.6,117.5 644.2,122.2 645.8,128.1 647.3,125.9 648.9,123.2 650.5,119.8 652.1,119.3 653.6,113.6 655.2,109.1 656.8,112.2 658.4,106.9 659.9,106.9 661.5,105.9 663.1,109.8 664.7,112.6 666.2,119.9 667.8,123.2 669.4,125.1 671.0,122.7 672.5,130.4 674.1,125.1 675.7,120.9 677.3,125.6 678.8,134.1 680.4,136.1 682.0,128.4 683.6,127.7 685.1,137.7 686.7,134.3 688.3,133.9 689.9,136.8 691.4,141.3 693.0,143.7 694.6,148.5 696.2,158.4 697.7,165.2 699.3,167.8 700.9,168.2 702.5,170.6 704.0,160.1 705.6,163.0 707.2,161.6 708.8,160.4 710.3,165.8 711.9,169.8 713.5,178.7 715.1,186.4 716.6,176.6 718.2,176.0 719.8,178.4 721.4,189.9 722.9,185.3 724.5,189.7 726.1,197.7 727.7,182.0 729.2,164.0 730.8,158.4 732.4,162.7 734.0,162.1 735.5,159.9 737.1,170.4 738.7,173.1 740.3,169.9 741.8,172.5 743.4,176.1 745.0,175.1 746.6,180.7 748.1,173.4 749.7,168.9 751.3,170.7 752.9,169.2 754.4,166.8 756.0,168.1" fill="none" stroke="#16191D" stroke-width="2.6" stroke-linejoin="round"/>
-<line x1="104" x2="756" y1="370.5" y2="370.5" stroke="#C98A12" stroke-width="2" stroke-dasharray="7 6"/>
-<text x="756" y="392.5" text-anchor="end" class="ax" font-size="17" fill="#C98A12">0,36 · 90%</text>
-<line x1="104" x2="756" y1="359.8" y2="359.8" stroke="#B3261E" stroke-width="2" stroke-dasharray="7 6"/>
-<text x="756" y="351.8" text-anchor="end" class="ax" font-size="17" fill="#B3261E">0,69 · 95%</text>
-<line x1="104" x2="756" y1="382.0" y2="382.0" stroke="#D2D4CD"/>
-<text x="94" y="389.0" text-anchor="end" class="ax" font-size="20">0</text>
-<polyline points="104.0,372.0 105.6,366.5 107.1,365.1 108.7,369.1 110.3,365.9 111.9,365.3 113.4,362.7 115.0,363.6 116.6,358.0 118.2,360.5 119.7,358.3 121.3,357.5 122.9,357.5 124.5,359.3 126.0,359.9 127.6,371.9 129.2,365.5 130.8,365.3 132.3,364.4 133.9,367.4 135.5,364.4 137.1,361.9 138.6,363.5 140.2,364.9 141.8,366.7 143.4,362.3 144.9,361.5 146.5,364.8 148.1,366.6 149.7,370.1 151.2,373.1 152.8,376.0 154.4,373.1 156.0,371.8 157.5,372.0 159.1,377.3 160.7,375.3 162.3,374.4 163.8,375.4 165.4,374.6 167.0,371.1 168.6,371.3 170.1,374.0 171.7,375.3 173.3,375.0 174.9,379.1 176.4,377.4 178.0,377.8 179.6,377.8 181.2,373.2 182.7,375.3 184.3,374.5 185.9,376.4 187.5,376.7 189.0,378.8 190.6,377.3 192.2,374.9 193.8,373.4 195.3,373.1 196.9,369.7 198.5,351.8 200.1,313.8 201.6,290.4 203.2,293.4 204.8,351.3 206.4,330.6 207.9,313.5 209.5,329.1 211.1,326.2 212.7,316.0 214.2,348.2 215.8,329.7 217.4,317.0 219.0,317.1 220.5,306.9 222.1,306.0 223.7,310.0 225.3,313.7 226.8,317.8 228.4,317.4 230.0,315.4 231.6,338.6 233.1,337.6 234.7,329.1 236.3,330.6 237.9,332.7 239.4,330.2 241.0,343.7 242.6,355.2 244.2,349.0 245.7,360.1 247.3,354.7 248.9,368.1 250.5,375.1 252.0,368.0 253.6,368.0 255.2,363.8 256.8,363.4 258.3,357.2 259.9,352.1 261.5,350.9 263.1,350.7 264.6,353.0 266.2,354.1 267.8,351.0 269.4,348.5 270.9,345.2 272.5,352.7 274.1,354.3 275.7,353.4 277.2,352.6 278.8,345.1 280.4,341.8 282.0,341.4 283.5,338.1 285.1,334.9 286.7,326.5 288.3,320.0 289.8,321.8 291.4,329.6 293.0,319.1 294.6,319.8 296.1,331.0 297.7,324.7 299.3,321.1 300.9,316.2 302.4,326.4 304.0,332.6 305.6,342.5 307.2,349.1 308.7,352.0 310.3,353.9 311.9,349.5 313.5,348.0 315.0,342.7 316.6,343.8 318.2,341.1 319.8,345.2 321.3,357.1 322.9,358.0 324.5,356.8 326.1,351.2 327.6,348.7 329.2,350.0 330.8,383.3 332.4,386.5 333.9,386.5 335.5,389.5 337.1,388.0 338.7,385.0 340.2,390.2 341.8,387.5 343.4,389.5 345.0,394.5 346.5,398.1 348.1,390.6 349.7,393.0 351.3,391.7 352.8,387.9 354.4,388.5 356.0,386.9 357.6,382.8 359.1,381.3 360.7,379.2 362.3,380.5 363.9,378.4 365.4,381.4 367.0,378.8 368.6,375.7 370.2,375.7 371.7,376.9 373.3,373.7 374.9,374.0 376.5,375.3 378.0,376.5 379.6,377.9 381.2,375.2 382.8,375.5 384.3,373.7 385.9,378.2 387.5,380.3 389.1,378.4 390.6,379.2 392.2,383.7 393.8,380.4 395.4,378.4 396.9,382.6 398.5,380.8 400.1,385.2 401.7,388.2 403.2,385.8 404.8,385.3 406.4,388.3 408.0,386.0 409.5,390.2 411.1,390.3 412.7,390.4 414.3,389.1 415.8,388.7 417.4,386.5 419.0,383.6 420.6,383.2 422.1,383.2 423.7,382.5 425.3,384.5 426.9,384.2 428.4,382.4 430.0,382.4 431.6,355.9 433.1,358.6 434.7,350.9 436.3,353.2 437.9,346.8 439.4,349.3 441.0,345.6 442.6,362.3 444.2,376.3 445.7,373.7 447.3,382.3 448.9,365.7 450.5,359.3 452.0,362.1 453.6,368.0 455.2,359.7 456.8,356.6 458.3,361.0 459.9,362.3 461.5,361.8 463.1,372.8 464.6,377.4 466.2,387.3 467.8,384.2 469.4,390.8 470.9,385.1 472.5,385.9 474.1,384.0 475.7,375.9 477.2,375.0 478.8,377.3 480.4,374.9 482.0,379.9 483.5,387.6 485.1,390.1 486.7,388.9 488.3,387.2 489.8,380.1 491.4,384.4 493.0,387.0 494.6,385.3 496.1,385.6 497.7,386.4 499.3,385.9 500.9,384.6 502.4,380.6 504.0,364.9 505.6,350.7 507.2,339.3 508.7,355.5 510.3,334.9 511.9,356.3 513.5,381.3 515.0,386.8 516.6,387.0 518.2,383.0 519.8,385.8 521.3,385.2 522.9,400.3 524.5,404.7 526.1,405.0 527.6,402.3 529.2,374.6 530.8,384.8 532.4,371.0 533.9,376.8 535.5,392.1 537.1,384.0 538.7,397.0 540.2,414.7 541.8,413.8 543.4,414.3 545.0,414.5 546.5,414.4 548.1,415.8 549.7,414.4 551.3,417.3 552.8,416.5 554.4,416.3 556.0,417.1 557.6,413.1 559.1,408.9 560.7,393.2 562.3,400.0 563.9,355.6 565.4,395.4 567.0,346.5 568.6,363.2 570.2,346.6 571.7,312.5 573.3,342.1 574.9,344.3 576.5,375.5 578.0,386.5 579.6,380.6 581.2,370.5 582.8,373.0 584.3,376.9 585.9,368.8 587.5,379.1 589.1,388.8 590.6,388.0 592.2,386.5 593.8,388.4 595.4,383.0 596.9,387.0 598.5,386.2 600.1,383.5 601.7,391.7 603.2,399.4 604.8,402.8 606.4,403.0 608.0,405.8 609.5,406.9 611.1,406.5 612.7,405.7 614.3,407.2 615.8,406.9 617.4,406.9 619.0,405.8 620.6,407.0 622.1,406.6 623.7,405.0 625.3,404.4 626.9,405.5 628.4,402.9 630.0,403.2 631.6,399.7 633.2,394.9 634.7,392.6 636.3,394.2 637.9,392.8 639.5,397.0 641.0,400.5 642.6,397.6 644.2,394.3 645.8,389.9 647.3,391.7 648.9,394.6 650.5,397.7 652.1,398.3 653.6,402.6 655.2,405.9 656.8,404.3 658.4,407.1 659.9,407.4 661.5,408.0 663.1,406.2 664.7,404.9 666.2,400.9 667.8,399.0 669.4,397.8 671.0,399.6 672.5,394.1 674.1,397.9 675.7,401.5 677.3,398.4 678.8,392.8 680.4,391.3 682.0,397.9 683.6,398.8 685.1,391.7 686.7,394.2 688.3,394.8 689.9,392.8 691.4,389.4 693.0,387.6 694.6,383.7 696.2,365.3 697.7,355.9 699.3,357.2 700.9,363.2 702.5,360.7 704.0,378.2 705.6,375.5 707.2,377.3 708.8,379.0 710.3,374.2 711.9,370.8 713.5,362.3 715.1,352.8 716.6,367.0 718.2,368.8 719.8,366.7 721.4,355.6 722.9,360.9 724.5,356.7 726.1,348.8 727.7,367.0 729.2,389.3 730.8,394.1 732.4,391.1 734.0,391.7 735.5,393.4 737.1,386.4 738.7,385.1 740.3,387.7 741.8,386.0 743.4,383.5 745.0,384.7 746.6,380.4 748.1,386.5 749.7,390.1 751.3,389.0 752.9,390.2 754.4,392.0 756.0,391.3" fill="none" stroke="#16191D" stroke-width="2" stroke-linejoin="round"/>
-<text x="94" y="276" text-anchor="end" class="ax" font-size="16">BSADF</text>
-<line x1="104.0" x2="104.0" y1="430" y2="438" stroke="#646A70"/>
-<text x="104.0" y="462" text-anchor="middle" class="ax" font-size="20">1985</text>
-<line x1="185.9" x2="185.9" y1="430" y2="438" stroke="#646A70"/>
-<text x="185.9" y="462" text-anchor="middle" class="ax" font-size="20">1986</text>
-<line x1="266.2" x2="266.2" y1="430" y2="438" stroke="#646A70"/>
-<text x="266.2" y="462" text-anchor="middle" class="ax" font-size="20">1987</text>
-<line x1="346.5" x2="346.5" y1="430" y2="438" stroke="#646A70"/>
-<text x="346.5" y="462" text-anchor="middle" class="ax" font-size="20">1988</text>
-<line x1="430.0" x2="430.0" y1="430" y2="438" stroke="#646A70"/>
-<text x="430.0" y="462" text-anchor="middle" class="ax" font-size="20">1989</text>
-<line x1="511.9" x2="511.9" y1="430" y2="438" stroke="#646A70"/>
-<text x="511.9" y="462" text-anchor="middle" class="ax" font-size="20">1990</text>
-<line x1="593.8" x2="593.8" y1="430" y2="438" stroke="#646A70"/>
-<text x="593.8" y="462" text-anchor="middle" class="ax" font-size="20">1991</text>
-<line x1="675.7" x2="675.7" y1="430" y2="438" stroke="#646A70"/>
-<text x="675.7" y="462" text-anchor="middle" class="ax" font-size="20">1992</text>
-<line x1="510.3" x2="510.3" y1="16" y2="430" stroke="#16191D" stroke-width="1.6"/>
-<circle cx="510.3" cy="28.7" r="6" fill="#16191D"/>
-<line x1="439.4" x2="439.4" y1="16" y2="430" stroke="#B3261E" stroke-width="2"/>
-<circle cx="439.4" cy="62.1" r="6" fill="#B3261E"/>
-</svg><p class="kcap"><b class="mono" style="color:#B3261E">45 semanas</b> de anticipación · rojo 17 feb 1989, peak 29 dic 1989</p></div>
-</div>
-<p class="src mono">Shanghái 2007 y 2015 quedaron fuera: la serie tiene un hueco de 13 días hábiles y no pasa la validación de datos. Fuente: Yahoo Finance; cálculo propio.</p>
-</section><section class="slide " data-n="12"><header class="mast mono"><span>Radar de Burbujas IA</span><span>Anexo E · Historia del semáforo</span><span>12 / 14</span></header>
-<h2 class="title r1">El rojo es escaso y aparece en los ciclos de alza fuerte</h2>
-<p class="exh mono r2" style="margin-top:44px">Figura 5 · Semáforo semanal con persistencia, 2000–2026</p>
-<div class="r2"><svg viewBox="0 0 1660 560" width="1660" height="560" role="img" aria-label="Historia del semáforo 2000-2026">
-<line x1="150.0" x2="150.0" y1="10" y2="510" stroke="#D2D4CD" stroke-width="1"/>
-<text x="150.0" y="544" text-anchor="middle" class="ax" font-size="22">2000</text>
-<line x1="260.5" x2="260.5" y1="10" y2="510" stroke="#D2D4CD" stroke-width="1"/>
-<text x="260.5" y="544" text-anchor="middle" class="ax" font-size="22">2002</text>
-<line x1="370.8" x2="370.8" y1="10" y2="510" stroke="#D2D4CD" stroke-width="1"/>
-<text x="370.8" y="544" text-anchor="middle" class="ax" font-size="22">2004</text>
-<line x1="481.2" x2="481.2" y1="10" y2="510" stroke="#D2D4CD" stroke-width="1"/>
-<text x="481.2" y="544" text-anchor="middle" class="ax" font-size="22">2006</text>
-<line x1="591.5" x2="591.5" y1="10" y2="510" stroke="#D2D4CD" stroke-width="1"/>
-<text x="591.5" y="544" text-anchor="middle" class="ax" font-size="22">2008</text>
-<line x1="702.0" x2="702.0" y1="10" y2="510" stroke="#D2D4CD" stroke-width="1"/>
-<text x="702.0" y="544" text-anchor="middle" class="ax" font-size="22">2010</text>
-<line x1="812.3" x2="812.3" y1="10" y2="510" stroke="#D2D4CD" stroke-width="1"/>
-<text x="812.3" y="544" text-anchor="middle" class="ax" font-size="22">2012</text>
-<line x1="922.7" x2="922.7" y1="10" y2="510" stroke="#D2D4CD" stroke-width="1"/>
-<text x="922.7" y="544" text-anchor="middle" class="ax" font-size="22">2014</text>
-<line x1="1033.0" x2="1033.0" y1="10" y2="510" stroke="#D2D4CD" stroke-width="1"/>
-<text x="1033.0" y="544" text-anchor="middle" class="ax" font-size="22">2016</text>
-<line x1="1143.5" x2="1143.5" y1="10" y2="510" stroke="#D2D4CD" stroke-width="1"/>
-<text x="1143.5" y="544" text-anchor="middle" class="ax" font-size="22">2018</text>
-<line x1="1253.8" x2="1253.8" y1="10" y2="510" stroke="#D2D4CD" stroke-width="1"/>
-<text x="1253.8" y="544" text-anchor="middle" class="ax" font-size="22">2020</text>
-<line x1="1364.2" x2="1364.2" y1="10" y2="510" stroke="#D2D4CD" stroke-width="1"/>
-<text x="1364.2" y="544" text-anchor="middle" class="ax" font-size="22">2022</text>
-<line x1="1474.5" x2="1474.5" y1="10" y2="510" stroke="#D2D4CD" stroke-width="1"/>
-<text x="1474.5" y="544" text-anchor="middle" class="ax" font-size="22">2024</text>
-<line x1="1585.0" x2="1585.0" y1="10" y2="510" stroke="#D2D4CD" stroke-width="1"/>
-<text x="1585.0" y="544" text-anchor="middle" class="ax" font-size="22">2026</text>
-<rect x="150.0" y="20.0" width="1480.6" height="30.0" fill="#3B6E4A" opacity="0.22"/>
-<rect x="154.1" y="20.0" width="18.1" height="30.0" fill="#B3261E"/>
-<rect x="219.7" y="20.0" width="7.5" height="30.0" fill="#C98A12"/>
-<rect x="643.8" y="20.0" width="20.2" height="30.0" fill="#C98A12"/>
-<rect x="916.7" y="20.0" width="25.5" height="30.0" fill="#C98A12"/>
-<text x="134" y="43.0" text-anchor="end" class="tk" font-size="24">Nasdaq</text>
-<rect x="372.0" y="70.0" width="1258.7" height="30.0" fill="#3B6E4A" opacity="0.22"/>
-<rect x="497.8" y="70.0" width="9.6" height="30.0" fill="#C98A12"/>
-<rect x="763.3" y="70.0" width="8.5" height="30.0" fill="#C98A12"/>
-<rect x="1027.7" y="70.0" width="5.4" height="30.0" fill="#C98A12"/>
-<rect x="1032.0" y="70.0" width="8.5" height="30.0" fill="#B3261E"/>
-<rect x="1050.0" y="70.0" width="9.6" height="30.0" fill="#C98A12"/>
-<rect x="1058.4" y="70.0" width="117.5" height="30.0" fill="#B3261E"/>
-<rect x="1174.8" y="70.0" width="17.0" height="30.0" fill="#C98A12"/>
-<rect x="1291.1" y="70.0" width="18.1" height="30.0" fill="#C98A12"/>
-<rect x="1345.1" y="70.0" width="16.0" height="30.0" fill="#C98A12"/>
-<rect x="1359.9" y="70.0" width="11.7" height="30.0" fill="#B3261E"/>
-<rect x="1370.4" y="70.0" width="3.3" height="30.0" fill="#C98A12"/>
-<rect x="1446.6" y="70.0" width="17.0" height="30.0" fill="#C98A12"/>
-<rect x="1485.7" y="70.0" width="3.3" height="30.0" fill="#C98A12"/>
-<rect x="1487.8" y="70.0" width="7.5" height="30.0" fill="#B3261E"/>
-<rect x="1494.2" y="70.0" width="8.5" height="30.0" fill="#C98A12"/>
-<rect x="1501.6" y="70.0" width="9.6" height="30.0" fill="#B3261E"/>
-<rect x="1510.1" y="70.0" width="30.8" height="30.0" fill="#C98A12"/>
-<text x="134" y="93.0" text-anchor="end" class="tk" font-size="24">NVDA</text>
-<rect x="150.0" y="120.0" width="1480.6" height="30.0" fill="#3B6E4A" opacity="0.22"/>
-<rect x="165.7" y="120.0" width="3.3" height="30.0" fill="#C98A12"/>
-<rect x="167.8" y="120.0" width="19.1" height="30.0" fill="#B3261E"/>
-<rect x="185.8" y="120.0" width="2.5" height="30.0" fill="#C98A12"/>
-<rect x="485.1" y="120.0" width="3.3" height="30.0" fill="#C98A12"/>
-<rect x="487.3" y="120.0" width="10.7" height="30.0" fill="#B3261E"/>
-<rect x="593.0" y="120.0" width="24.4" height="30.0" fill="#C98A12"/>
-<rect x="638.5" y="120.0" width="4.3" height="30.0" fill="#C98A12"/>
-<rect x="641.7" y="120.0" width="23.4" height="30.0" fill="#B3261E"/>
-<rect x="663.9" y="120.0" width="2.5" height="30.0" fill="#C98A12"/>
-<rect x="857.5" y="120.0" width="4.3" height="30.0" fill="#C98A12"/>
-<rect x="860.6" y="120.0" width="8.5" height="30.0" fill="#B3261E"/>
-<rect x="1070.0" y="120.0" width="7.5" height="30.0" fill="#C98A12"/>
-<rect x="1090.1" y="120.0" width="20.2" height="30.0" fill="#C98A12"/>
-<rect x="1184.3" y="120.0" width="7.5" height="30.0" fill="#B3261E"/>
-<rect x="1190.6" y="120.0" width="2.5" height="30.0" fill="#C98A12"/>
-<rect x="1257.3" y="120.0" width="11.7" height="30.0" fill="#C98A12"/>
-<rect x="1291.1" y="120.0" width="7.5" height="30.0" fill="#C98A12"/>
-<rect x="1609.5" y="120.0" width="3.3" height="30.0" fill="#C98A12"/>
-<rect x="1611.6" y="120.0" width="9.6" height="30.0" fill="#B3261E"/>
-<rect x="1620.1" y="120.0" width="12.8" height="30.0" fill="#C98A12"/>
-<text x="134" y="143.0" text-anchor="end" class="tk" font-size="24">AMD</text>
-<rect x="953.7" y="170.0" width="676.9" height="30.0" fill="#3B6E4A" opacity="0.22"/>
-<rect x="959.0" y="170.0" width="4.3" height="30.0" fill="#C98A12"/>
-<rect x="962.2" y="170.0" width="54.0" height="30.0" fill="#B3261E"/>
-<rect x="1015.0" y="170.0" width="25.5" height="30.0" fill="#C98A12"/>
-<rect x="1047.8" y="170.0" width="8.5" height="30.0" fill="#C98A12"/>
-<rect x="1446.6" y="170.0" width="12.8" height="30.0" fill="#C98A12"/>
-<rect x="1481.5" y="170.0" width="2.5" height="30.0" fill="#C98A12"/>
-<rect x="1482.6" y="170.0" width="13.8" height="30.0" fill="#B3261E"/>
-<rect x="1495.2" y="170.0" width="38.2" height="30.0" fill="#C98A12"/>
-<rect x="1532.3" y="170.0" width="8.5" height="30.0" fill="#B3261E"/>
-<rect x="1539.7" y="170.0" width="5.4" height="30.0" fill="#C98A12"/>
-<rect x="1561.9" y="170.0" width="30.8" height="30.0" fill="#C98A12"/>
-<text x="134" y="193.0" text-anchor="end" class="tk" font-size="24">AVGO</text>
-<rect x="301.1" y="220.0" width="1329.5" height="30.0" fill="#3B6E4A" opacity="0.22"/>
-<rect x="758.0" y="220.0" width="2.5" height="30.0" fill="#C98A12"/>
-<rect x="759.1" y="220.0" width="10.7" height="30.0" fill="#B3261E"/>
-<rect x="1129.3" y="220.0" width="8.5" height="30.0" fill="#C98A12"/>
-<rect x="1136.7" y="220.0" width="8.5" height="30.0" fill="#B3261E"/>
-<rect x="1144.1" y="220.0" width="20.2" height="30.0" fill="#C98A12"/>
-<rect x="1255.1" y="220.0" width="9.6" height="30.0" fill="#C98A12"/>
-<rect x="1290.1" y="220.0" width="17.0" height="30.0" fill="#C98A12"/>
-<rect x="1305.9" y="220.0" width="27.6" height="30.0" fill="#B3261E"/>
-<rect x="1332.4" y="220.0" width="12.8" height="30.0" fill="#C98A12"/>
-<rect x="1485.7" y="220.0" width="19.1" height="30.0" fill="#C98A12"/>
-<rect x="1503.7" y="220.0" width="7.5" height="30.0" fill="#B3261E"/>
-<rect x="1510.1" y="220.0" width="2.5" height="30.0" fill="#C98A12"/>
-<rect x="1576.7" y="220.0" width="31.8" height="30.0" fill="#C98A12"/>
-<rect x="1607.4" y="220.0" width="25.5" height="30.0" fill="#B3261E"/>
-<text x="134" y="243.0" text-anchor="end" class="tk" font-size="24">TSM</text>
-<rect x="150.0" y="270.0" width="1480.6" height="30.0" fill="#3B6E4A" opacity="0.22"/>
-<rect x="644.9" y="270.0" width="19.1" height="30.0" fill="#C98A12"/>
-<rect x="963.2" y="270.0" width="18.1" height="30.0" fill="#C98A12"/>
-<rect x="1137.7" y="270.0" width="41.3" height="30.0" fill="#C98A12"/>
-<rect x="1177.9" y="270.0" width="14.9" height="30.0" fill="#B3261E"/>
-<rect x="1191.7" y="270.0" width="9.6" height="30.0" fill="#C98A12"/>
-<rect x="1216.0" y="270.0" width="45.6" height="30.0" fill="#C98A12"/>
-<rect x="1260.4" y="270.0" width="8.5" height="30.0" fill="#B3261E"/>
-<rect x="1267.8" y="270.0" width="2.5" height="30.0" fill="#C98A12"/>
-<rect x="1278.4" y="270.0" width="30.8" height="30.0" fill="#C98A12"/>
-<rect x="1594.7" y="270.0" width="12.8" height="30.0" fill="#C98A12"/>
-<text x="134" y="293.0" text-anchor="end" class="tk" font-size="24">MSFT</text>
-<rect x="679.8" y="320.0" width="950.9" height="30.0" fill="#3B6E4A" opacity="0.22"/>
-<rect x="932.5" y="320.0" width="7.5" height="30.0" fill="#C98A12"/>
-<rect x="1329.2" y="320.0" width="17.0" height="30.0" fill="#C98A12"/>
-<rect x="1345.1" y="320.0" width="20.2" height="30.0" fill="#B3261E"/>
-<rect x="1364.1" y="320.0" width="7.5" height="30.0" fill="#C98A12"/>
-<rect x="1578.8" y="320.0" width="2.5" height="30.0" fill="#C98A12"/>
-<rect x="1579.9" y="320.0" width="18.1" height="30.0" fill="#B3261E"/>
-<rect x="1596.8" y="320.0" width="10.7" height="30.0" fill="#C98A12"/>
-<rect x="1606.3" y="320.0" width="11.7" height="30.0" fill="#B3261E"/>
-<rect x="1616.9" y="320.0" width="11.7" height="30.0" fill="#C98A12"/>
-<text x="134" y="343.0" text-anchor="end" class="tk" font-size="24">GOOGL</text>
-<rect x="278.9" y="370.0" width="1351.7" height="30.0" fill="#3B6E4A" opacity="0.22"/>
-<rect x="351.9" y="370.0" width="9.6" height="30.0" fill="#C98A12"/>
-<rect x="360.3" y="370.0" width="8.5" height="30.0" fill="#B3261E"/>
-<rect x="367.7" y="370.0" width="5.4" height="30.0" fill="#C98A12"/>
-<rect x="578.2" y="370.0" width="10.7" height="30.0" fill="#C98A12"/>
-<rect x="696.7" y="370.0" width="9.6" height="30.0" fill="#C98A12"/>
-<rect x="920.9" y="370.0" width="11.7" height="30.0" fill="#C98A12"/>
-<rect x="1028.8" y="370.0" width="11.7" height="30.0" fill="#C98A12"/>
-<rect x="1149.4" y="370.0" width="2.5" height="30.0" fill="#C98A12"/>
-<rect x="1150.4" y="370.0" width="42.4" height="30.0" fill="#B3261E"/>
-<rect x="1191.7" y="370.0" width="3.3" height="30.0" fill="#C98A12"/>
-<rect x="1291.1" y="370.0" width="7.5" height="30.0" fill="#C98A12"/>
-<text x="134" y="393.0" text-anchor="end" class="tk" font-size="24">AMZN</text>
-<rect x="1107.1" y="420.0" width="523.6" height="30.0" fill="#3B6E4A" opacity="0.22"/>
-<rect x="1374.7" y="420.0" width="7.5" height="30.0" fill="#B3261E"/>
-<rect x="1381.0" y="420.0" width="7.5" height="30.0" fill="#C98A12"/>
-<rect x="1408.5" y="420.0" width="4.3" height="30.0" fill="#C98A12"/>
-<rect x="1411.7" y="420.0" width="7.5" height="30.0" fill="#B3261E"/>
-<rect x="1418.0" y="420.0" width="5.4" height="30.0" fill="#C98A12"/>
-<rect x="1484.7" y="420.0" width="11.7" height="30.0" fill="#B3261E"/>
-<rect x="1495.2" y="420.0" width="2.5" height="30.0" fill="#C98A12"/>
-<text x="134" y="443.0" text-anchor="end" class="tk" font-size="24">META</text>
-<rect x="150.0" y="470.0" width="1480.6" height="30.0" fill="#3B6E4A" opacity="0.22"/>
-<rect x="154.1" y="470.0" width="41.3" height="30.0" fill="#B3261E"/>
-<rect x="194.3" y="470.0" width="4.3" height="30.0" fill="#C98A12"/>
-<rect x="219.7" y="470.0" width="7.5" height="30.0" fill="#C98A12"/>
-<rect x="526.4" y="470.0" width="12.8" height="30.0" fill="#C98A12"/>
-<rect x="1119.8" y="470.0" width="7.5" height="30.0" fill="#C98A12"/>
-<rect x="1573.5" y="470.0" width="8.5" height="30.0" fill="#C98A12"/>
-<text x="134" y="493.0" text-anchor="end" class="tk" font-size="24">ORCL</text>
-</svg></div>
-<div class="legend mono r3"><span><i class="sw" style="background:#B3261E"></i>Rojo</span><span><i class="sw" style="background:#C98A12"></i>Amarillo</span><span><i class="sw" style="background:#3B6E4A;opacity:.3"></i>Verde</span><span class="muted">El rojo cubre el 4,3% de las semanas de las 11 series · 1,1 episodios rojos por año en las 9 acciones</span></div>
-</section><section class="slide " data-n="13"><header class="mast mono"><span>Radar de Burbujas IA</span><span>Anexo F · K-Means</span><span>13 / 14</span></header>
+</section><section class="slide " data-n="11"><header class="mast mono"><span>Radar de Burbujas IA</span><span>Anexo D · K-Means</span><span>11 / 11</span></header>
 <h2 class="title r1">K-Means agrupa 9.971 semanas-acción en tres perfiles de riesgo</h2>
 <div class="kmg">
-  <div class="r2"><p class="exh mono">Figura 6 · BSADF frente a volatilidad anual, por perfil</p><canvas id="km" width="1040" height="600"></canvas>
+  <div class="r2"><p class="exh mono">Figura 3 · BSADF frente a volatilidad anual, por perfil</p><canvas id="km" width="1040" height="600"></canvas>
   <div class="legend mono"><span><i class="sw" style="background:#3B6E4A"></i>Estable 65%</span><span><i class="sw" style="background:#4C5F86"></i>Volátil-sensible al mercado 22%</span><span><i class="sw" style="background:#B3261E"></i>Explosivo-alcista 13%</span></div></div>
   <div class="kmside r3">
     <p class="exh mono">Variables</p><p class="body s"><span class="tip" tabindex="0" data-h="BSADF" data-t="Estadístico de Phillips, Shi y Yu (2015). Para cada semana corre la prueba ADF desde distintos puntos de partida de los últimos 5 años y guarda el valor más alto. Si supera el umbral, el precio está creciendo de forma explosiva.">BSADF</span>, <span class="tip" tabindex="0" data-h="Momentum" data-t="Variación del precio en las últimas 52 semanas. Ejemplo: +37% significa que la acción vale 37% más que hace un año.">momentum</span> 52 semanas, <span class="tip" tabindex="0" data-h="Volatilidad anual" data-t="Desviación estándar de los retornos semanales de las últimas 52 semanas, llevada a base anual (× √52). Mide cuánto se mueve el precio.">volatilidad</span> y <span class="tip" tabindex="0" data-h="Beta" data-t="Sensibilidad de la acción al mercado (S&amp;P 500), calculada con 104 semanas. Beta 1,5: si el mercado sube 1%, la acción tiende a subir 1,5%.">beta</span>; estandarizadas. k-means++, semilla 42.</p>
@@ -647,12 +390,6 @@ table{border-collapse:collapse;color:inherit;font-size:inherit;font-family:inher
     <p class="body s">k = 2 tiene la silhouette más alta, pero junta las semanas explosivas con las volátiles. Se eligió 3 por interpretación.</p>
     <p class="exh mono" style="margin-top:28px">Rol en el producto</p><p class="body s">Describe el tipo de riesgo; no cambia el semáforo.</p>
   </div>
-</div>
-</section><section class="slide dark" data-n="14"><header class="mast mono"><span>Radar de Burbujas IA</span><span>Preguntas</span><span>14 / 14</span></header>
-<div class="closing">
-  <p class="kick mono r1">Gracias</p>
-  <h2 class="title big r2">¿Preguntas?</h2>
-  <p class="dek r3">Código, notebooks, auditoría y guía de interpretación en el repositorio del proyecto.</p>
 </div>
 </section>
 <div class="progress"><i id="bar"></i></div>
