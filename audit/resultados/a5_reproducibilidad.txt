@@ -1,9 +1,9 @@
-﻿Reproducibilidad - 2026-11-01 23:34:20
-Commit clonado: 2640759 Parte D: README, guía de interpretación, pruebas, CI y diagrama
+﻿Reproducibilidad - 2026-11-02 07:05:37
+Commit clonado: 79e864c Documentación del producto
 pip install exit: 0
 Python: Python 3.13.17
-pytest: ...........                                                              [100%] | 11 passed in 44.31s
+pytest: ....................                                                     [100%] | 20 passed in 37.24s
 main.py --offline exit: 0
-2026-11-01 23:43:40 | INFO     | radar.main | RESUMEN_EJECUCION estado=OK modo=offline duracion_s=5.3 series_validas=11/11 pct_validas=100.0 excluidos=- reporte=reporte_radar_2026-10-30.xlsx
+2026-11-02 07:11:11 | INFO     | radar.main | RESUMEN_EJECUCION estado=OK modo=offline origen=manual fin_utc=2026-11-02T10:11:11Z duracion_s=2.1 series_validas=11/11 pct_validas=100.0 filas=75320 alertas=0 excluidos=- reporte=reporte_radar_2026-10-30.xlsx
 semaforo identico: True | dif max bsadf: 0.0
-Duracion total: 9.4 min
+Duracion total: 5.6 min
