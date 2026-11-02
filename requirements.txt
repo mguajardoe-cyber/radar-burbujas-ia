@@ -1,0 +1,11 @@
+# Dependencias del Radar de Burbujas IA (Python 3.13)
+# Versiones fijadas para reproducibilidad (mismo resultado en local y en CI)
+jupyter==1.1.1
+yfinance==1.7.0
+pandas==3.1.0
+numpy==2.5.4
+statsmodels==0.15.0
+matplotlib==3.11.2
+scikit-learn==1.9.1
+openpyxl==3.1.5
+pytest==9.2.0

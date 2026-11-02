@@ -1,0 +1,26 @@
+# Entorno virtual
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# pytest
+.pytest_cache/
+
+# Respaldo de entrega (se genera con git archive desde la última etiqueta, v1.1-entrega)
+outputs/entrega_*.zip
+
+# Sistema operativo y editores
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+
+# Archivos temporales de Office (ej.: ~$reporte.xlsx)
+~$*
+
+# Los logs de logs/ SÍ se versionan: son la evidencia del KPI IL4.
