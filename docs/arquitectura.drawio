@@ -1,0 +1,151 @@
+<mxfile host="app.diagrams.net" agent="Radar de Burbujas IA" version="24.0.0">
+  <diagram id="arquitectura" name="Arquitectura">
+    <mxGraphModel dx="1400" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="660" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Título -->
+        <mxCell id="titulo" value="&lt;b&gt;Radar de Burbujas IA — arquitectura del producto de datos&lt;/b&gt;" style="text;html=1;align=left;verticalAlign=middle;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="20" y="10" width="700" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- KPIs por nivel (notas) -->
+        <mxCell id="kpi3" value="&lt;b&gt;IL3 · calidad de datos&lt;/b&gt; (medido en cada corrida)&lt;br&gt;cobertura 100% · completitud 99,999%&lt;br&gt;duplicidad 0% · campos 100% · frescura 3 días" style="shape=note;whiteSpace=wrap;html=1;size=10;fillColor=#E1F5EC;strokeColor=#1BAF7A;fontSize=10;align=left;spacingLeft=6;" vertex="1" parent="1">
+          <mxGeometry x="185" y="48" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="kpi4" value="&lt;b&gt;IL4 · operación&lt;/b&gt; (logs)&lt;br&gt;corridas sin error 100% · duración máx. 25 s (meta &amp;lt; 5 min)&lt;br&gt;SLA lunes 08:00 y frecuencia de uso: definidos" style="shape=note;whiteSpace=wrap;html=1;size=10;fillColor=#FFF4D9;strokeColor=#C98500;fontSize=10;align=left;spacingLeft=6;" vertex="1" parent="1">
+          <mxGeometry x="560" y="48" width="290" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="kpi5" value="&lt;b&gt;IL5 · impacto&lt;/b&gt;&lt;br&gt;rojo 11 / 45 / 42 semanas antes del peak (medido)&lt;br&gt;1,1 decisiones por año (medido) · US$ evitados (proyectado)" style="shape=note;whiteSpace=wrap;html=1;size=10;fillColor=#FBE3E3;strokeColor=#D03B3B;fontSize=10;align=left;spacingLeft=6;" vertex="1" parent="1">
+          <mxGeometry x="970" y="48" width="300" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Disparador de la ejecución semanal -->
+        <mxCell id="disparador" value="&lt;b&gt;Ejecución semanal programada&lt;/b&gt; · GitHub Actions &lt;i&gt;radar_semanal.yml&lt;/i&gt;, lunes 02:00 UTC (≈ domingo 23:00 en Chile), con commit del reporte, el log y los datos · alternativa: Programador de tareas de Windows · también manual" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0EFEC;strokeColor=#52514E;fontSize=10;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="185" y="125" width="820" height="36" as="geometry" />
+        </mxCell>
+
+        <!-- Orquestación (main.py) -->
+        <mxCell id="orquestador" value="src/main.py — un comando (normal o --offline; origen manual / programada / pruebas)" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=none;strokeColor=#52514E;verticalAlign=top;align=left;spacingLeft=8;fontSize=11;fontColor=#52514E;" vertex="1" parent="1">
+          <mxGeometry x="185" y="175" width="820" height="225" as="geometry" />
+        </mxCell>
+        <mxCell id="fd" style="endArrow=block;html=1;strokeColor=#52514E;" edge="1" parent="1" source="disparador" target="orquestador">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Fuente -->
+        <mxCell id="e1" value="&lt;b&gt;Yahoo Finance&lt;/b&gt;&lt;br&gt;yfinance, pública&lt;br&gt;9 acciones + ^IXIC, ^GSPC" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CDE2FB;strokeColor=#2A78D6;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="20" y="250" width="145" height="75" as="geometry" />
+        </mxCell>
+
+        <!-- Etapas dentro de main.py -->
+        <mxCell id="e2" value="&lt;b&gt;Ingesta y validación&lt;/b&gt;&lt;br&gt;src/ingesta.py&lt;br&gt;duplicados, precios, huecos, volumen" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2A78D6;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="205" y="250" width="150" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="&lt;b&gt;Test BSADF&lt;/b&gt;&lt;br&gt;src/sadf.py, features.py&lt;br&gt;ventana 260 semanas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2A78D6;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="395" y="205" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="&lt;b&gt;Variables de riesgo&lt;/b&gt;&lt;br&gt;momentum, volatilidad,&lt;br&gt;beta vs. S&amp;amp;P 500" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2A78D6;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="395" y="305" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="&lt;b&gt;Semáforo&lt;/b&gt;&lt;br&gt;verde / amarillo / rojo&lt;br&gt;umbrales 90% y 95%, persistencia 6 sem." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2A78D6;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="595" y="205" width="170" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="e5b" value="&lt;b&gt;Perfil de riesgo (K-Means)&lt;/b&gt;&lt;br&gt;src/perfiles.py, k = 3&lt;br&gt;estable / explosivo / volátil" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2A78D6;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="595" y="305" width="170" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="&lt;b&gt;Reporte Excel&lt;/b&gt;&lt;br&gt;src/reporte.py · 4 hojas:&lt;br&gt;Semáforo, Variables, Gráficos, Registro de revisión" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2A78D6;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="805" y="205" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e6b" value="&lt;b&gt;KPIs y alertas de deriva&lt;/b&gt;&lt;br&gt;src/kpis.py, monitoreo.py&lt;br&gt;se escriben en el log" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#898781;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="805" y="305" width="180" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Consumo -->
+        <mxCell id="e7" value="&lt;b&gt;Comité de inversiones&lt;/b&gt;&lt;br&gt;lee el reporte (solo lectura)&lt;br&gt;mantener, reducir o cubrir" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CDE2FB;strokeColor=#2A78D6;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="205" width="190" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" value="&lt;b&gt;Operador y feedback&lt;/b&gt;&lt;br&gt;anota la decisión en el Registro de revisión;&lt;br&gt;dudas por issues (plantilla de feedback)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2A78D6;dashed=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="305" width="190" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Flechas del flujo -->
+        <mxCell id="f1" style="endArrow=block;html=1;strokeColor=#52514E;" edge="1" parent="1" source="e1" target="e2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f2" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;strokeColor=#52514E;" edge="1" parent="1" source="e2" target="e3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f3" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;strokeColor=#52514E;" edge="1" parent="1" source="e2" target="e4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f4" style="endArrow=block;html=1;strokeColor=#52514E;" edge="1" parent="1" source="e3" target="e5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f5" style="endArrow=block;html=1;strokeColor=#52514E;" edge="1" parent="1" source="e4" target="e5b">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f5b" style="endArrow=block;html=1;strokeColor=#52514E;dashed=1;" edge="1" parent="1" source="e3" target="e5b">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f6" style="endArrow=block;html=1;strokeColor=#52514E;" edge="1" parent="1" source="e5" target="e6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f6b" style="endArrow=block;html=1;strokeColor=#52514E;" edge="1" parent="1" source="e5b" target="e6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f7" style="endArrow=block;html=1;strokeColor=#52514E;" edge="1" parent="1" source="e6" target="e7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f8" style="endArrow=block;html=1;strokeColor=#52514E;dashed=1;" edge="1" parent="1" source="e7" target="e8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Enlaces de los KPIs -->
+        <mxCell id="lk3" style="endArrow=none;dashed=1;html=1;strokeColor=#1BAF7A;" edge="1" parent="1" source="kpi3" target="disparador">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lk4" style="endArrow=none;dashed=1;html=1;strokeColor=#C98500;" edge="1" parent="1" source="kpi4" target="disparador">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lk5" style="endArrow=none;dashed=1;html=1;strokeColor=#D03B3B;" edge="1" parent="1" source="kpi5" target="e7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Franja inferior: mantenimiento y gobernanza -->
+        <mxCell id="mant" value="&lt;b&gt;Mantenimiento y gobernanza (Capas 5 y 6)&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F0EFEC;strokeColor=#C3C2B7;verticalAlign=top;align=left;spacingLeft=8;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="20" y="425" width="1250" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="m1" value="&lt;b&gt;Logs por corrida&lt;/b&gt;&lt;br&gt;logs/radar_AAAA-MM-DD.log&lt;br&gt;origen, duración, filas, KPIs, alertas" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#898781;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="35" y="465" width="230" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="m2" value="&lt;b&gt;Alertas&lt;/b&gt;&lt;br&gt;falla: descarga vacía o &amp;lt; 98% válidas → código 1&lt;br&gt;deriva (WARNING): frescura &amp;gt; 7 días,&lt;br&gt;filas ±10%, salto semanal ±50%" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#898781;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="280" y="465" width="230" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="m3" value="&lt;b&gt;Modelos y cachés&lt;/b&gt;&lt;br&gt;cv_bsadf.json (Monte Carlo 20.000)&lt;br&gt;perfiles_kmeans.json (sin reentrenar cada semana)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#898781;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="525" y="465" width="230" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="m4" value="&lt;b&gt;Git y CI&lt;/b&gt;&lt;br&gt;ci.yml: pytest en cada push&lt;br&gt;(20 pruebas, incluye main.py --offline)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#898781;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="770" y="465" width="230" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="m5" value="&lt;b&gt;Gobernanza&lt;/b&gt;&lt;br&gt;roles: dueño, operador, comité, soporte&lt;br&gt;recalibración trimestral: KPIs,&lt;br&gt;perfiles K-Means, universo (definida)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#898781;dashed=1;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="1015" y="465" width="240" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="lm1" style="endArrow=block;dashed=1;html=1;strokeColor=#898781;" edge="1" parent="1" source="e6b" target="m2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="895" y="410" />
+              <mxPoint x="395" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Nota -->
+        <mxCell id="nota" value="Flujo de izquierda a derecha: datos → procesamiento → salida → consumo. Recuadro punteado: lo que ejecuta src/main.py en cada corrida. Línea punteada de Test BSADF a Perfil: el BSADF es una de las 4 variables del K-Means." style="text;html=1;align=left;fontSize=10;fontColor=#52514E;" vertex="1" parent="1">
+          <mxGeometry x="20" y="580" width="1250" height="25" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
